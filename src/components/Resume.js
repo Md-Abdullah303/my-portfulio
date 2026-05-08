@@ -5,19 +5,14 @@ import { motion } from "framer-motion";
 export default function Resume() {
   const education = [
     {
-      period: "2016 - 2018 Collage Name",
-      degree: "HSC-",
-      description: "Intrinsically enhance efficient communities whereas magnetic products. Proactively.",
+      period: "2022 - 2023 Agradut Bidya Niketon High School",
+      degree: "SSC",
+      description: "Successfully completed my Secondary School Certificate (SSC) from the Science group with a GPA of 4.50. This period was crucial in developing my analytical thinking and a deep interest in technology.",
     },
     {
-      period: "2018 - 2022 / University Name",
-      degree: "Bachelor's degree",
-      description: "Quickly strategize real-time innovation rather than customer directed.",
-    },
-    {
-      period: "2022 - 2023 University Name",
-      degree: "Masters degree",
-      description: "Interactively reconceptualize compelling leadership skills for magnetic content.",
+      period: "2024 - 2027 Chandpur Politechnic Institute",
+      degree: "Diploma in Engineering",
+      description: "Currently pursuing a Diploma in Engineering, where I am gaining hands-on experience in technical systems, engineering principles, and professional project development.",
     },
   ];
 
