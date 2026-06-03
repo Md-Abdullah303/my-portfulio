@@ -11,6 +11,8 @@ const projects = [
     description: "Livestock booking platform for Qurbani. Responsive web app to buy cows and goats with detailed animal profiles.",
     image: "https://i.ibb.co.com/kgQVC9wY/Screenshot-2026-05-06-120448.png",
     link: "https://cow-market-eight.vercel.app/",
+    github: "https://github.com/Md-Abdullah303/cow-market-eight",
+    tags: ["Next.js", "Express.js", "MongoDB", "Tailwind CSS"],
   },
   {
     id: 2,
@@ -19,6 +21,8 @@ const projects = [
     description: "Explore AI-driven imagery with a high-performance rendering engine and a seamless user experience.",
     image: "https://i.ibb.co.com/xq8Cc3rd/686151031-1298628179051917-7131519668026073681-n.jpg",
     link: "https://generated-ai-images.vercel.app/",
+    github: "https://github.com/Md-Abdullah303/generated-ai-images",
+    tags: ["React", "Tailwind CSS", "AI API", "Framer Motion"],
   },
   {
     id: 3,
@@ -27,6 +31,8 @@ const projects = [
     description: "Dynamic Next.js news application featuring real-time updates and a clean, readable layout for global news.",
     image: "https://i.ibb.co.com/GvkbbG4S/Screenshot-2026-05-06-121159.png",
     link: "https://dragon-news-prectise-next.vercel.app/",
+    github: "https://github.com/Md-Abdullah303/dragon-news-practice",
+    tags: ["Next.js", "React", "Tailwind CSS", "News API"],
   },
   {
     id: 4,
@@ -35,6 +41,8 @@ const projects = [
     description: "An intuitive management tool designed to organize professional and personal tasks with ease.",
     image: "https://i.ibb.co.com/tPcQPCVf/Screenshot-2026-05-06-121338.png",
     link: "https://b-13-a-7-7rev.vercel.app/",
+    github: "https://github.com/Md-Abdullah303/keen-keeper",
+    tags: ["React", "Tailwind CSS", "Node.js", "Firebase"],
   },
 ];
 
@@ -64,67 +72,94 @@ export default function RecentProjects() {
       </header>
 
       {/* Project Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
         {projects.map((project, index) => (
           <motion.article 
             key={project.id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
-            className="project-card relative group flex flex-col"
+            transition={{ duration: 0.8, delay: index * 0.15 }}
+            className="border border-white/[0.08] bg-[#0d0e12] rounded-[2.5rem] flex flex-col justify-between h-full group hover:border-white/20 transition-all duration-500 shadow-2xl relative overflow-hidden"
           >
             {/* Blue glow effect behind the card */}
             <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-3xl -z-10"></div>
             
-            {/* Browser Preview Container */}
-            <div className="relative rounded-t-3xl overflow-hidden border border-white/5 bg-[#0f1117] pt-4 px-4 h-64 md:h-80 flex flex-col transition-transform duration-500 group-hover:-translate-y-2">
-              {/* Fake Browser UI */}
-              <div className="flex gap-1.5 mb-4 opacity-50">
-                <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                <div className="w-2 h-2 rounded-full bg-green-500"></div>
+            <div>
+              {/* Mockup Container (Flush with top, left, right) */}
+              <div className="bg-[#eaeaea] aspect-[16/10] relative flex flex-col p-3 shadow-inner w-full">
+                {/* Fake Browser header */}
+                <div className="flex items-center justify-between pb-3 px-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-[#ff5f56]"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#ffbd2e]"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#27c93f]"></div>
+                  </div>
+                  <div className="h-5 bg-[#2d3139] rounded text-[8px] text-[#8e95a5] flex items-center justify-center px-3 w-40 truncate font-semibold">
+                    {project.link.replace("https://", "")}
+                  </div>
+                  <div className="w-8"></div>
+                </div>
+                
+                {/* Browser viewport (Image flush with inner border) */}
+                <div className="relative flex-grow w-full overflow-hidden rounded-xl bg-black">
+                  <Image 
+                    src={project.image} 
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-110"
+                  />
+                </div>
               </div>
-              
-              {/* Website Snapshot */}
-              <div className="relative w-full h-full overflow-hidden rounded-t-xl">
-                <Image 
-                  src={project.image} 
-                  alt={project.title}
-                  fill
-                  className="object-cover object-top"
-                />
+
+              {/* Details (Padded) */}
+              <div className="px-6 pt-6">
+                <h3 className="text-xl md:text-2xl font-extrabold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
+                  {project.title}
+                </h3>
+                
+                <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-5">
+                  {project.description}
+                </p>
+
+                {/* Technology badges */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag) => (
+                    <span 
+                      key={tag} 
+                      className="px-3 py-1.2 rounded-lg bg-[#16181f] border border-white/10 text-slate-400 font-semibold text-[10px] tracking-wide uppercase transition-colors duration-300 hover:border-white/20 hover:text-white"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Glassmorphic Details Panel */}
-            <div className="glass-effect rounded-2xl -mt-20 p-6 md:p-8 flex flex-col gap-4 relative z-10 shadow-2xl transition-all duration-500 group-hover:translate-y-2 group-hover:bg-white/5 min-h-[220px]">
-              <div className="flex">
-                <span className="glass-effect px-4 py-1.5 rounded-full text-xs font-medium tracking-wide text-white/90">
-                  {project.category}
-                </span>
-              </div>
-              <h3 className="text-xl md:text-2xl font-semibold group-hover:text-blue-400 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed line-clamp-3">
-                {project.description}
-              </p>
-              
-              {/* Live Link Button */}
-              <div className="mt-auto pt-4">
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] active:scale-95"
-                >
-                  Live Demo
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
+            {/* Buttons (Padded) */}
+            <div className="px-6 pb-6 flex gap-3">
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 py-3 px-2 rounded-xl bg-[#16181f] hover:bg-[#20232d] border border-white/10 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+                Live site
+              </a>
+              <a 
+                href={project.github} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 py-3 px-2 rounded-xl bg-[#16181f] hover:bg-[#20232d] border border-white/10 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                </svg>
+                GitHub repo
+              </a>
             </div>
           </motion.article>
         ))}

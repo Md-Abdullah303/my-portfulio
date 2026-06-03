@@ -20,16 +20,10 @@ export default function Resume() {
 
   const experience = [
     {
-      period: "2025 - Present",
-      institution: "Freelance",
-      role: "Senior Designer",
-      description: "Dynamically communicate mission-critical supply chains after client-based human.",
-    },
-    {
-      period: "2025",
-      institution: "Web Code",
-      role: "Lead ui/ux designer",
-      description: "Holistically create excellent web-readiness and prospective strategic theme.",
+      period: "2025 - 2026",
+      institution: "Self-Directed",
+      role: "Web Developer",
+      description: "I have worked on several personal and academic projects that have helped me strengthen my core web development skills. Through these projects, I gained hands-on experience in building responsive and user-friendly web applications using modern technologies. Each project improved my problem-solving ability, coding practice, and understanding of real-world development workflows. This continuous practice has played an important role in my growth as a web developer.",
     },
   ];
 
@@ -93,31 +87,42 @@ export default function Resume() {
           </motion.h2>
 
           <div className="space-y-12">
-            {experience.map((item, index) => (
+            {experience.length > 0 ? (
+              experience.map((item, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="space-y-4 group"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                    <div className="inline-block px-4 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest uppercase transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+                      {item.period}
+                    </div>
+                    <span className="text-slate-400 text-sm font-medium italic">
+                      {item.institution}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                    {item.role}
+                  </h3>
+                  <p className="text-slate-400 leading-relaxed text-base max-w-lg">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))
+            ) : (
               <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="space-y-4 group"
+                className="text-slate-400 text-lg italic pl-4 border-l border-emerald-500/30"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                  <div className="inline-block px-4 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest uppercase transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
-                    {item.period}
-                  </div>
-                  <span className="text-slate-400 text-sm font-medium italic">
-                    {item.institution}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
-                  {item.role}
-                </h3>
-                <p className="text-slate-400 leading-relaxed text-base max-w-lg">
-                  {item.description}
-                </p>
+                None
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </div>
