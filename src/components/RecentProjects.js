@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    id: 1,
     category: "The Modern Job Hunting Portal",
     title: "HireLoop",
     description:
@@ -23,18 +22,27 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    category: "IdeaVault – Startup Idea Sharing Platform",
+    title: "IdeaVault",
+    description:
+      "IdeaVault is a modern web-based startup idea sharing platform where users can:- Share innovative startup ideas, Explore ideas from other creators, Interact through comments & discussions, Validate ideas through community engagement, Collaborate and improve concepts together, Unlike booking or scheduling platforms, IdeaVault focuses on creativity, validation, and meaningful interaction between passionate builders and thinkers.",
+    image: "https://i.ibb.co.com/whdWGpc7/Idea-Vult-Image.png",
+    link: "https://ideavault-assainment.vercel.app/",
+    github:
+      "https://github.com/Md-Abdullah303/IdeaVault-Startup-Idea-Sharing-Platform",
+    tags: ["Next.js", "JavaScrip ES6", "Better Auth", "MongoDB", "Express.js"],
+  },
+  {
     category: "Full Stack Platform",
     title: "QurbaniHat",
     description:
       "Livestock booking platform for Qurbani. Responsive web app to buy cows and goats with detailed animal profiles.",
     image: "https://i.ibb.co.com/kgQVC9wY/Screenshot-2026-05-06-120448.png",
     link: "https://cow-market-eight.vercel.app/",
-    github: "https://github.com/Md-Abdullah303/cow-market-eight",
+    github: "https://github.com/Md-Abdullah303/B-13-A-7",
     tags: ["Next.js", "Express.js", "MongoDB", "Tailwind CSS"],
   },
   {
-    id: 3,
     category: "AI Imagery",
     title: "Generated AI Images",
     description:
@@ -46,26 +54,24 @@ const projects = [
     tags: ["React", "Tailwind CSS", "AI API", "Framer Motion"],
   },
   {
-    id: 4,
     category: "News Portal",
     title: "Dragon News",
     description:
       "Dynamic Next.js news application featuring real-time updates and a clean, readable layout for global news.",
     image: "https://i.ibb.co.com/GvkbbG4S/Screenshot-2026-05-06-121159.png",
     link: "https://dragon-news-prectise-next.vercel.app/",
-    github: "https://github.com/Md-Abdullah303/dragon-news-practice",
+    github: "https://github.com/Md-Abdullah303/dragon-news-prectise-next",
     tags: ["Next.js", "React", "Tailwind CSS", "News API"],
   },
   {
-    id: 5,
     category: "Organization Tool",
     title: "KeenKeeper",
     description:
       "An intuitive management tool designed to organize professional and personal tasks with ease.",
     image: "https://i.ibb.co.com/tPcQPCVf/Screenshot-2026-05-06-121338.png",
     link: "https://b-13-a-7-7rev.vercel.app/",
-    github: "https://github.com/Md-Abdullah303/keen-keeper",
-    tags: ["React", "Tailwind CSS", "Node.js", "Firebase"],
+    github: "https://vercel.com/md-abdullah303s-projects/b-13-a-7",
+    tags: ["React", "Tailwind CSS", "Node.js", "DaisyUI"],
   },
 ];
 
@@ -102,7 +108,7 @@ export default function RecentProjects() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
         {projects.map((project, index) => (
           <motion.article
-            key={project.id}
+            key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
