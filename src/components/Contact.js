@@ -11,7 +11,7 @@ export default function Contact() {
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           className="space-y-8"
         >
           <div className="flex items-center gap-3">
@@ -68,7 +68,7 @@ export default function Contact() {
         <motion.div 
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           className="glass-card p-8 md:p-12 bg-slate-900/40 border border-blue-500/10 rounded-[2.5rem]"
         >
           <form className="space-y-6">
@@ -87,8 +87,8 @@ export default function Contact() {
               </div>
               <div className="space-y-3">
                 <label className="block text-sm font-bold text-gray-400 ml-1">Interest *</label>
-                <select className="form-input-custom appearance-none" required>
-                  <option value="" disabled selected>Select Service</option>
+                <select className="form-input-custom appearance-none" required defaultValue="">
+                  <option value="" disabled>Select Service</option>
                   <option value="web">Web Development</option>
                   <option value="app">App Development</option>
                   <option value="uiux">UI/UX Design</option>

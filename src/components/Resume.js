@@ -38,7 +38,7 @@ export default function Resume() {
           <motion.h2 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.05 }}
             className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4"
           >
             <span className="w-8 h-1 bg-blue-500 rounded-full"></span>
@@ -51,7 +51,7 @@ export default function Resume() {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.05 }}
                 transition={{ delay: index * 0.1 }}
                 className="space-y-4 group relative"
               >
@@ -79,7 +79,7 @@ export default function Resume() {
           <motion.h2 
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.05 }}
             className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4"
           >
             <span className="w-8 h-1 bg-emerald-500 rounded-full"></span>
@@ -93,7 +93,7 @@ export default function Resume() {
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.05 }}
                   transition={{ delay: index * 0.1 }}
                   className="space-y-4 group"
                 >
@@ -117,7 +117,7 @@ export default function Resume() {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.05 }}
                 className="text-slate-400 text-lg italic pl-4 border-l border-emerald-500/30"
               >
                 None

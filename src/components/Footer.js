@@ -15,7 +15,7 @@ export default function Footer() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           className="mb-16 text-center"
         >
           <h2 className="text-6xl md:text-9xl font-black tracking-tighter uppercase select-none bg-gradient-to-b from-white to-white/20 bg-clip-text text-transparent leading-none">

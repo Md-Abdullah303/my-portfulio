@@ -1,9 +1,28 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 const projects = [
+  {
+    category: "Legal Tech Platform",
+    title: "LegalEase",
+    description:
+      "This project helps clients discover lawyers, request consultations, make payments, and track hiring history. Lawyers can manage their profiles and services, while admins oversee users, lawyers, transactions, and analytics.",
+    image: "/legalease.png",
+    link: "https://legal-ease-omega-five.vercel.app",
+    github: "https://github.com/Md-Abdullah303/LegalEase-client",
+    tags: [
+      "Next.js",
+      "Tailwind CSS",
+      "Node.js",
+      "MongoDB",
+      "Express.js",
+      "Better Auth",
+      "Stripe",
+    ],
+  },
   {
     category: "The Modern Job Hunting Portal",
     title: "HireLoop",
@@ -72,10 +91,14 @@ const projects = [
     link: "https://b-13-a-7-7rev.vercel.app/",
     github: "https://vercel.com/md-abdullah303s-projects/b-13-a-7",
     tags: ["React", "Tailwind CSS", "Node.js", "DaisyUI"],
-  },
+  }
+  
 ];
 
 export default function RecentProjects() {
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? projects : projects.slice(0, 6);
+
   return (
     <section
       className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto"
@@ -86,7 +109,7 @@ export default function RecentProjects() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-semibold tracking-tight mb-6"
         >
@@ -95,7 +118,7 @@ export default function RecentProjects() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
         >
@@ -106,12 +129,12 @@ export default function RecentProjects() {
 
       {/* Project Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
-        {projects.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <motion.article
             key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.8, delay: index * 0.15 }}
             className="border border-white/[0.08] bg-[#0d0e12] rounded-[2.5rem] flex flex-col justify-between h-full group hover:border-white/20 transition-all duration-500 shadow-2xl relative overflow-hidden"
           >
@@ -217,6 +240,53 @@ export default function RecentProjects() {
           </motion.article>
         ))}
       </div>
+
+      {projects.length > 6 && (
+        <div className="flex justify-center mt-16">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setShowAll(!showAll)}
+            className="px-8 py-4 rounded-2xl bg-[#16181f] hover:bg-[#20232d] border border-white/10 text-white font-bold text-base flex items-center gap-2 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]"
+          >
+            {showAll ? (
+              <>
+                Show Less
+                <svg
+                  className="w-5 h-5 transform rotate-180 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </>
+            ) : (
+              <>
+                Show More Projects
+                <svg
+                  className="w-5 h-5 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </>
+            )}
+          </motion.button>
+        </div>
+      )}
     </section>
   );
 }

@@ -11,9 +11,11 @@ import Skills from "@/components/Skills";
 import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import RocketPreloader from "@/components/RocketPreloader";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [loading, setLoading] = useState(true);
   const statCardsRef = useRef([]);
 
   useEffect(() => {
@@ -47,7 +49,15 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden selection:bg-blue-500/30">
+    <>
+      <AnimatePresence mode="wait">
+        {loading && (
+          <RocketPreloader key="loader" onComplete={() => setLoading(false)} />
+        )}
+      </AnimatePresence>
+
+      <div className={loading ? "opacity-0 h-screen overflow-hidden" : "opacity-100 transition-opacity duration-1000 ease-out"}>
+        <div className="min-h-screen text-white overflow-x-hidden selection:bg-blue-500/30">
       {/* Header */}
       <motion.header 
         initial={{ y: -100, opacity: 0 }}
@@ -64,7 +74,7 @@ export default function Home() {
             {/* Logo */}
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className="text-lg font-bold tracking-widest uppercase cursor-pointer"
+              className="text-sm md:text-lg font-bold tracking-widest uppercase cursor-pointer whitespace-nowrap"
             >
               Mohammad Abdullah
             </motion.div>
@@ -90,8 +100,8 @@ export default function Home() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                href="#"
-                className="accent-blue px-6 py-2.5 rounded-full text-sm font-semibold block"
+                href="#contact"
+                className="accent-blue px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-semibold block whitespace-nowrap"
               >
                 Book a call
               </Link>
@@ -250,6 +260,8 @@ export default function Home() {
           className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-indigo-500/10 blur-[120px] rounded-full"
         ></motion.div>
       </div>
-    </div>
+      </div>
+      </div>
+    </>
   );
 }

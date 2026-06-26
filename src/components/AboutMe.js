@@ -13,7 +13,7 @@ export default function AboutMe() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium tracking-wider uppercase"
         >
           My Story
@@ -21,7 +21,7 @@ export default function AboutMe() {
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ delay: 0.1 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
         >
@@ -30,7 +30,7 @@ export default function AboutMe() {
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ delay: 0.2 }}
           className="max-w-2xl mx-auto text-slate-400 leading-relaxed text-lg"
         >
@@ -44,7 +44,7 @@ export default function AboutMe() {
         <motion.aside 
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.05 }}
           className="lg:col-span-4 space-y-8"
         >
           <div className="glass-card p-8 flex flex-col items-center text-center border border-blue-500/20 rounded-[2.5rem] bg-slate-900/40 backdrop-blur-2xl relative overflow-hidden group">
@@ -113,7 +113,7 @@ export default function AboutMe() {
           <motion.section 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.05 }}
             className="glass-card p-10 bg-slate-900/40 border border-blue-500/10 rounded-[2.5rem] relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 blur-[60px] rounded-full"></div>
@@ -180,7 +180,7 @@ export default function AboutMe() {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.05 }}
                 transition={{ delay: i * 0.1 }}
                 className={`glass-card p-8 bg-slate-900/40 border border-slate-800/50 rounded-[2rem] hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden group`}
               >
