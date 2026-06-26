@@ -52,12 +52,17 @@ export default function AboutMe() {
             <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-600/10 blur-[80px] rounded-full group-hover:bg-blue-600/20 transition-all duration-700"></div>
             
             {/* Portrait Image */}
-            <div className="w-full aspect-square mb-8 overflow-hidden rounded-[2rem] relative border border-slate-700/50 shadow-2xl">
+            <div
+              className="w-full aspect-square mb-8 overflow-hidden rounded-[2rem] relative border border-slate-700/50 shadow-2xl"
+              onContextMenu={(e) => e.preventDefault()}
+            >
               <Image 
-                src="https://i.ibb.co.com/0jFj9qg8/a-professtion-pic-from-chat-gtp-croped.jpg" 
+                src="/profile.jpg" 
                 alt="Mohammad Abdullah Portrait" 
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 1024px) 100vw, 400px"
+                className="object-cover object-top group-hover:scale-105 transition-transform duration-700 pointer-events-none select-none"
+                draggable={false}
               />
             </div>
 

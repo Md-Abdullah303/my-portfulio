@@ -177,23 +177,28 @@ export default function Home() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-              className="relative w-80 h-80 md:w-96 md:h-96 portrait-glow rounded-full"
+              className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] portrait-glow rounded-full"
             >
               {/* Mohammad Abdullah Portrait */}
-              <div className="w-full h-full rounded-full overflow-hidden border-4 border-blue-900/30 relative">
+              <div
+                className="w-full h-full rounded-full overflow-hidden border-4 border-blue-900/30 relative"
+                onContextMenu={(e) => e.preventDefault()}
+              >
                 <Image
-                  src="https://i.ibb.co.com/0jFj9qg8/a-professtion-pic-from-chat-gtp-croped.jpg"
+                  src="/profile.jpg"
                   alt="Mohammad Abdullah Portrait"
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 768px) 288px, 416px"
+                  className="object-cover object-top pointer-events-none select-none"
                   priority
+                  draggable={false}
                 />
               </div>
 
               {/* Floating Glass Cards (Stats) */}
               {[
-                { label: "Coding Experience", value: "1500+ Hrs", className: "-top-10 -left-20 w-60" },
-                { label: "Project Completed", value: "20+", className: "bottom-12 -left-28 w-60" },
+                { label: "Coding Experience", value: "4500+ Hrs", className: "-top-10 -left-20 w-60" },
+                { label: "Project Completed", value: "40+", className: "bottom-12 -left-28 w-60" },
                 { label: "Year of Experience", value: "1.5+", className: "-bottom-10 -right-12 w-60" },
               ].map((stat, i) => (
                 <motion.div
