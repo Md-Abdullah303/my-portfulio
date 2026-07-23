@@ -201,9 +201,9 @@ export default function Home() {
 
               {/* Floating Glass Cards (Stats) */}
               {[
-                { label: "Coding Experience", value: "4500+ Hrs", className: "-top-10 -left-20 w-60" },
-                { label: "Project Completed", value: "40+", className: "bottom-12 -left-28 w-60" },
-                { label: "Year of Experience", value: "1.5+", className: "-bottom-10 -right-12 w-60" },
+                { label: "Coding Experience", value: "1200+ Hrs", className: "-top-10 -left-20 w-60" },
+                { label: "Projects Completed", value: "10+", className: "bottom-12 -left-28 w-60" },
+                { label: "Years of Experience", value: "1.5+", className: "-bottom-10 -right-12 w-60" },
               ].map((stat, i) => (
                 <motion.div
                   key={stat.label}
