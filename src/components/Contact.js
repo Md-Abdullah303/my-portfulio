@@ -1,23 +1,98 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 // ─────────────────────────────────────────────────────────
-//  EmailJS credentials — fill these in after setting up
-//  your EmailJS account (see README / instructions below)
+//  EmailJS credentials
 // ─────────────────────────────────────────────────────────
 const EMAILJS_SERVICE_ID  = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID  || "service_02bxz8t";
 const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_zgixh4p";
 const EMAILJS_PUBLIC_KEY  = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  || "b1K_9qb_MCJ9AZB4H";
 
+const services = [
+  { value: "web",   label: "Web Development" },
+  { value: "app",   label: "App Development" },
+  { value: "uiux",  label: "UI/UX Design" },
+];
+
+// ── Custom dark-themed dropdown ──────────────────────────
+function CustomSelect({ value, onChange }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  // Close on outside click
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const selected = services.find((s) => s.value === value);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="form-input-custom w-full flex items-center justify-between text-left"
+        style={{ background: "rgba(255,255,255,0.03)" }}
+      >
+        <span className={selected ? "text-white" : "text-gray-500"}>
+          {selected ? selected.label : "Select Service"}
+        </span>
+        <motion.svg
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="w-4 h-4 text-gray-400 flex-shrink-0 ml-2"
+          fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </motion.svg>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.ul
+            initial={{ opacity: 0, y: -8, scaleY: 0.95 }}
+            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+            exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
+            transition={{ duration: 0.15 }}
+            style={{ transformOrigin: "top" }}
+            className="absolute z-50 w-full mt-2 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+            style={{ background: "#0d1425" }}
+          >
+            {services.map((s) => (
+              <li key={s.value}>
+                <button
+                  type="button"
+                  onClick={() => { onChange(s.value); setOpen(false); }}
+                  className={`w-full text-left px-5 py-3 text-sm font-medium transition-all duration-200 ${
+                    value === s.value
+                      ? "bg-blue-600/20 text-blue-400"
+                      : "text-gray-300 hover:bg-white/5 hover:text-white"
+                  }`}
+                >
+                  {s.label}
+                </button>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export default function Contact() {
   const formRef = useRef(null);
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [status, setStatus]   = useState("idle");
+  const [interest, setInterest] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!interest) { alert("Please select a service."); return; }
     setStatus("sending");
 
     try {
@@ -25,12 +100,11 @@ export default function Contact() {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         formRef.current,
-        {
-          publicKey: EMAILJS_PUBLIC_KEY,
-        }
+        { publicKey: EMAILJS_PUBLIC_KEY }
       );
       setStatus("success");
       formRef.current.reset();
+      setInterest("");
     } catch (err) {
       console.error("EmailJS error:", err?.text || err?.message || err);
       setStatus(`error: ${err?.text || err?.message || "Something went wrong"}`);
@@ -40,9 +114,9 @@ export default function Contact() {
   return (
     <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto" id="contact">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-        
-        {/* Contact Info Column */}
-        <motion.div 
+
+        {/* ── Contact Info Column ─────────────────────── */}
+        <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.05 }}
@@ -52,12 +126,12 @@ export default function Contact() {
             <div className="w-10 h-[2px] bg-blue-500"></div>
             <span className="text-blue-500 font-bold uppercase tracking-widest text-sm">Contact Me</span>
           </div>
-          
+
           <h2 className="text-4xl md:text-6xl font-black leading-tight text-white">
             Let&apos;s Talk for <br />
             <span className="text-glow text-blue-500">Your Next Projects</span>
           </h2>
-          
+
           <p className="text-gray-400 text-lg leading-relaxed max-w-md">
             I&apos;m always open to discussing new projects, creative ideas or original visions. Let&apos;s build something extraordinary together.
           </p>
@@ -93,7 +167,7 @@ export default function Contact() {
                 href: null,
               },
             ].map((item, i) => (
-              <motion.li 
+              <motion.li
                 key={i}
                 whileHover={{ x: 10 }}
                 className="flex items-center gap-6 group cursor-pointer"
@@ -102,10 +176,7 @@ export default function Contact() {
                   {item.icon}
                 </div>
                 {item.href ? (
-                  <a
-                    href={item.href}
-                    className="text-gray-300 font-medium text-lg hover:text-blue-400 transition-colors break-all"
-                  >
+                  <a href={item.href} className="text-gray-300 font-medium text-lg hover:text-blue-400 transition-colors break-all">
                     {item.text}
                   </a>
                 ) : (
@@ -116,8 +187,8 @@ export default function Contact() {
           </ul>
         </motion.div>
 
-        {/* Contact Form Column */}
-        <motion.div 
+        {/* ── Contact Form Column ─────────────────────── */}
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.05 }}
@@ -127,7 +198,6 @@ export default function Contact() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3">
                 <label className="block text-sm font-bold text-gray-400 ml-1">Your Name *</label>
-                {/* EmailJS reads the `name` attribute to map to template variables */}
                 <input name="from_name" className="form-input-custom" placeholder="Ex. Mohammad Abdullah" required type="text" />
               </div>
               <div className="space-y-3">
@@ -140,15 +210,12 @@ export default function Contact() {
               </div>
               <div className="space-y-3">
                 <label className="block text-sm font-bold text-gray-400 ml-1">Interest *</label>
-                <select name="interest" className="form-input-custom appearance-none" required defaultValue="">
-                  <option value="" disabled>Select Service</option>
-                  <option value="web">Web Development</option>
-                  <option value="app">App Development</option>
-                  <option value="uiux">UI/UX Design</option>
-                </select>
+                {/* Hidden input so EmailJS can read the selected value */}
+                <input type="hidden" name="interest" value={interest} />
+                <CustomSelect value={interest} onChange={setInterest} />
               </div>
             </div>
-            
+
             <div className="space-y-3">
               <label className="block text-sm font-bold text-gray-400 ml-1">Your Message *</label>
               <textarea name="message" className="form-input-custom resize-none" placeholder="How can I help you?" required rows="4"></textarea>
@@ -176,7 +243,7 @@ export default function Contact() {
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
-                {status.split("error: ")[1] || "Something went wrong. Please try again or email me directly."}
+                {status.split("error: ")[1] || "Something went wrong. Please try again."}
               </motion.div>
             )}
 
