@@ -90,7 +90,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden" id="skills">
+    <section className="py-16 md:py-24 px-6 relative overflow-hidden" id="skills">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
@@ -99,7 +99,7 @@ export default function Skills() {
 
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <header className="text-center mb-24">
+        <header className="text-center mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}

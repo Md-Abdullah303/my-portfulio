@@ -101,11 +101,11 @@ export default function RecentProjects() {
 
   return (
     <section
-      className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto"
+      className="py-16 md:py-24 px-6 md:px-12 max-w-[1400px] mx-auto"
       id="recent-projects"
     >
       {/* Header Section */}
-      <header className="text-center mb-20">
+      <header className="text-center mb-12 md:mb-20">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

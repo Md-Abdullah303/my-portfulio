@@ -7,9 +7,9 @@ import { FiCode, FiLayout, FiZap, FiUsers } from "react-icons/fi";
 
 export default function AboutMe() {
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto" id="about">
+    <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto" id="about">
       {/* Header Section */}
-      <header className="text-center mb-20">
+      <header className="text-center mb-12 md:mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

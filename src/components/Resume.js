@@ -28,8 +28,8 @@ export default function Resume() {
   ];
 
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto" id="resume">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 relative">
+    <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto" id="resume">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 relative">
         {/* Vertical Separator (Hidden on mobile) */}
         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 border-l border-dashed border-slate-700/50"></div>
 
