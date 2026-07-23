@@ -127,8 +127,29 @@ export default function Resume() {
         </div>
       </div>
 
+      {/* Download CV Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.05 }}
+        className="mt-20 flex justify-center"
+      >
+        <motion.a
+          href="/Full_Stack_Email_Abdullah.pdf"
+          download="Mohammad_Abdullah_Resume.pdf"
+          whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0,102,255,0.35)" }}
+          whileTap={{ scale: 0.97 }}
+          className="accent-blue flex items-center gap-3 px-10 py-4 rounded-2xl font-bold text-base text-white transition-all duration-300"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Download Full Resume
+        </motion.a>
+      </motion.div>
+
       {/* Decorative bottom line */}
-      <div className="mt-32 w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent"></div>
+      <div className="mt-16 w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent"></div>
     </section>
   );
 }

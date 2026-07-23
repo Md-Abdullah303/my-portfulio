@@ -94,18 +94,35 @@ export default function Home() {
               ))}
             </ul>
 
-            {/* CTA Button */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                href="#contact"
-                className="accent-blue px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-semibold block whitespace-nowrap"
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-3">
+              {/* Download CV */}
+              <motion.a
+                href="/Full_Stack_Email_Abdullah.pdf"
+                download="Mohammad_Abdullah_Resume.pdf"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="hidden md:flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-semibold border border-white/20 text-gray-300 hover:text-white hover:border-white/40 transition-all duration-300 whitespace-nowrap"
               >
-                Book a call
-              </Link>
-            </motion.div>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download CV
+              </motion.a>
+
+              {/* Book a call */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="#contact"
+                  className="accent-blue px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-semibold block whitespace-nowrap"
+                >
+                  Book a call
+                </Link>
+              </motion.div>
+            </div>
           </nav>
         </div>
       </motion.header>
