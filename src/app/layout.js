@@ -27,11 +27,14 @@ export const metadata = {
   },
 };
 
+import { Analytics } from "@vercel/analytics/react";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
       <body className="selection:bg-blue-500 selection:text-white" suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );

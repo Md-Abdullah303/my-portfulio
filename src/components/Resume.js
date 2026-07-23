@@ -20,10 +20,22 @@ export default function Resume() {
 
   const experience = [
     {
-      period: "2025 - 2026",
+      period: "2024",
+      institution: "LegalEase Platform",
+      role: "Full Stack Developer",
+      description: "Architected and developed a comprehensive legal tech platform. Engineered core features including lawyer discovery, consultation booking, integrated payment gateways (Stripe), and dedicated admin/lawyer dashboards using Next.js and MongoDB.",
+    },
+    {
+      period: "2023 - 2024",
+      institution: "HireLoop & IdeaVault",
+      role: "Frontend Engineer",
+      description: "Built a modern job hunting portal (HireLoop) and a startup idea sharing platform (IdeaVault). Implemented streamlined job discovery flows, complex user authentication (Better Auth), and focused on high-performance animations and user experience with React and Tailwind CSS.",
+    },
+    {
+      period: "2022 - 2023",
       institution: "Self-Directed",
       role: "Web Developer",
-      description: "I have worked on several personal and academic projects that have helped me strengthen my core web development skills. Through these projects, I gained hands-on experience in building responsive and user-friendly web applications using modern technologies. Each project improved my problem-solving ability, coding practice, and understanding of real-world development workflows. This continuous practice has played an important role in my growth as a web developer.",
+      description: "Began journey in web development by building various full-stack applications. Gained strong foundational skills in JavaScript, React, Node.js, and API integration through continuous practice and real-world project simulations.",
     },
   ];
 
