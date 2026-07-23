@@ -32,6 +32,16 @@ export default function Home() {
     : item === "PROJECTS" ? "#recent-projects"
     : `#${item.toLowerCase()}`;
 
+  // Preloader session logic
+  useEffect(() => {
+    const hasLoaded = sessionStorage.getItem("hasLoaded");
+    if (hasLoaded) {
+      setLoading(false);
+    } else {
+      sessionStorage.setItem("hasLoaded", "true");
+    }
+  }, []);
+
   // Scroll listener
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);

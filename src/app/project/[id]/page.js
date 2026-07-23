@@ -3,8 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export function generateMetadata({ params }) {
-  const project = projects.find((p) => p.id === params.id);
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const project = projects.find((p) => p.id === resolvedParams.id);
   if (!project) return { title: "Project Not Found" };
   return { title: `${project.title} - Project Details` };
 }
@@ -15,8 +16,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectDetails({ params }) {
-  const project = projects.find((p) => p.id === params.id);
+export default async function ProjectDetails({ params }) {
+  const resolvedParams = await params;
+  const project = projects.find((p) => p.id === resolvedParams.id);
 
   if (!project) {
     notFound();
