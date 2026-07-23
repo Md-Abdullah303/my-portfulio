@@ -8,9 +8,9 @@ import emailjs from "@emailjs/browser";
 //  EmailJS credentials — fill these in after setting up
 //  your EmailJS account (see README / instructions below)
 // ─────────────────────────────────────────────────────────
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // e.g. "service_abc123"
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // e.g. "template_xyz789"
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";   // e.g. "aBcDeFgHiJkLmNoP"
+const EMAILJS_SERVICE_ID  = "service_lsi0ebu";   // e.g. "service_abc123"
+const EMAILJS_TEMPLATE_ID = "template_zgixh4p";
+const EMAILJS_PUBLIC_KEY  = "b1K_9qb_MCJ9AZB4H";
 
 export default function Contact() {
   const formRef = useRef(null);
