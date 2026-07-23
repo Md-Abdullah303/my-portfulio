@@ -4,96 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const projects = [
-  {
-    category: "Legal Tech Platform",
-    title: "LegalEase",
-    description:
-      "This project helps clients discover lawyers, request consultations, make payments, and track hiring history. Lawyers can manage their profiles and services, while admins oversee users, lawyers, transactions, and analytics.",
-    image: "/legalease.png",
-    link: "https://legal-ease-omega-five.vercel.app",
-    github: "https://github.com/Md-Abdullah303/LegalEase-client",
-    tags: [
-      "Next.js",
-      "Tailwind CSS",
-      "Node.js",
-      "MongoDB",
-      "Express.js",
-      "Better Auth",
-      "Stripe",
-    ],
-  },
-  {
-    category: "The Modern Job Hunting Portal",
-    title: "HireLoop",
-    description:
-      "HireLoop is a full-featured job hunting portal that bridges the gap between job seekers and employers. It streamlines job discovery, application management, and company recruitment — all in one platform.",
-    image: "https://i.ibb.co.com/cKCLmNQn/hireloop-Img.png",
-    link: "https://hireloop-client-chi.vercel.app",
-    github: "https://github.com/Md-Abdullah303/hireloop-client",
-    tags: [
-      "Next.js",
-      "Express.js",
-      "MongoDB",
-      "Tailwind CSS",
-      "User Base Authentication",
-      "Gsap",
-    ],
-  },
-  {
-    category: "IdeaVault – Startup Idea Sharing Platform",
-    title: "IdeaVault",
-    description:
-      "IdeaVault is a modern web-based startup idea sharing platform where users can:- Share innovative startup ideas, Explore ideas from other creators, Interact through comments & discussions, Validate ideas through community engagement, Collaborate and improve concepts together, Unlike booking or scheduling platforms, IdeaVault focuses on creativity, validation, and meaningful interaction between passionate builders and thinkers.",
-    image: "https://i.ibb.co.com/whdWGpc7/Idea-Vult-Image.png",
-    link: "https://ideavault-assainment.vercel.app/",
-    github:
-      "https://github.com/Md-Abdullah303/IdeaVault-Startup-Idea-Sharing-Platform",
-    tags: ["Next.js", "JavaScript ES6", "Better Auth", "MongoDB", "Express.js"],
-  },
-  {
-    category: "Full Stack Platform",
-    title: "QurbaniHat",
-    description:
-      "Livestock booking platform for Qurbani. Responsive web app to buy cows and goats with detailed animal profiles.",
-    image: "https://i.ibb.co.com/kgQVC9wY/Screenshot-2026-05-06-120448.png",
-    link: "https://cow-market-eight.vercel.app/",
-    github: "https://github.com/Md-Abdullah303/B-13-A-7",
-    tags: ["Next.js", "Express.js", "MongoDB", "Tailwind CSS"],
-  },
-  {
-    category: "AI Imagery",
-    title: "Generated AI Images",
-    description:
-      "Explore AI-driven imagery with a high-performance rendering engine and a seamless user experience.",
-    image:
-      "https://i.ibb.co.com/xq8Cc3rd/686151031-1298628179051917-7131519668026073681-n.jpg",
-    link: "https://generated-ai-images.vercel.app/",
-    github: "https://github.com/Md-Abdullah303/generated-ai-images",
-    tags: ["React", "Tailwind CSS", "AI API", "Framer Motion"],
-  },
-  {
-    category: "News Portal",
-    title: "Dragon News",
-    description:
-      "Dynamic Next.js news application featuring real-time updates and a clean, readable layout for global news.",
-    image: "https://i.ibb.co.com/GvkbbG4S/Screenshot-2026-05-06-121159.png",
-    link: "https://dragon-news-prectise-next.vercel.app/",
-    github: "https://github.com/Md-Abdullah303/dragon-news-prectise-next",
-    tags: ["Next.js", "React", "Tailwind CSS", "News API"],
-  },
-  {
-    category: "Organization Tool",
-    title: "KeenKeeper",
-    description:
-      "An intuitive management tool designed to organize professional and personal tasks with ease.",
-    image: "https://i.ibb.co.com/tPcQPCVf/Screenshot-2026-05-06-121338.png",
-    link: "https://b-13-a-7-7rev.vercel.app/",
-    github: "https://github.com/Md-Abdullah303/B-13-A-7",
-    tags: ["React", "Tailwind CSS", "Node.js", "DaisyUI"],
-  }
-  
-];
+import Link from "next/link";
+import { projects } from "../data/projects";
 
 export default function RecentProjects() {
   const [showAll, setShowAll] = useState(false);
@@ -195,48 +107,15 @@ export default function RecentProjects() {
 
             {/* Buttons (Padded) */}
             <div className="px-6 pb-6 flex gap-3">
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-3 px-2 rounded-xl bg-[#16181f] hover:bg-[#20232d] border border-white/10 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+              <Link
+                href={`/project/${project.id}`}
+                className="w-full py-3 px-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]"
               >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                  />
+                View Details
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
-                Live site
-              </a>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-3 px-2 rounded-xl bg-[#16181f] hover:bg-[#20232d] border border-white/10 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-                  />
-                </svg>
-                GitHub repo
-              </a>
+              </Link>
             </div>
           </motion.article>
         ))}

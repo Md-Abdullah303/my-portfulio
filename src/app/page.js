@@ -268,12 +268,16 @@ export default function Home() {
                     Let&apos;s Connect
                   </motion.a>
                   <motion.a
-                    href="#recent-projects"
+                    href="/Full_Stack_Email_Abdullah.pdf"
+                    download="Mohammad_Abdullah_Resume.pdf"
                     whileHover={{ scale: 1.05, background: "rgba(255, 255, 255, 0.1)" }}
                     whileTap={{ scale: 0.95 }}
-                    className="glass-card px-8 py-3.5 md:px-10 md:py-4 rounded-2xl font-bold text-base md:text-lg flex items-center justify-center cursor-pointer"
+                    className="glass-card px-8 py-3.5 md:px-10 md:py-4 rounded-2xl font-bold text-base md:text-lg flex items-center justify-center cursor-pointer gap-2"
                   >
-                    See My Work
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download Resume
                   </motion.a>
                 </motion.div>
 
