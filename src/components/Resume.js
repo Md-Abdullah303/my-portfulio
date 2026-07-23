@@ -30,6 +30,7 @@ export default function Resume() {
       institution: "HireLoop & IdeaVault",
       role: "Frontend Engineer",
       description: "Built a modern job hunting portal (HireLoop) and a startup idea sharing platform (IdeaVault). Implemented streamlined job discovery flows, complex user authentication (Better Auth), and focused on high-performance animations and user experience with React and Tailwind CSS.",
+    },
   ];
 
   return (
