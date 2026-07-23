@@ -89,7 +89,7 @@ const projects = [
       "An intuitive management tool designed to organize professional and personal tasks with ease.",
     image: "https://i.ibb.co.com/tPcQPCVf/Screenshot-2026-05-06-121338.png",
     link: "https://b-13-a-7-7rev.vercel.app/",
-    github: "https://vercel.com/md-abdullah303s-projects/b-13-a-7",
+    github: "https://github.com/Md-Abdullah303/B-13-A-7",
     tags: ["React", "Tailwind CSS", "Node.js", "DaisyUI"],
   }
   
