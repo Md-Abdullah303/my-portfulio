@@ -7,8 +7,24 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "MOHAMMAD ABDULLAH - Portfolio",
-  description: "Professional Web Developer Portfolio",
+  title: "Mohammad Abdullah — Full Stack Web Developer | Next.js & React",
+  description:
+    "Portfolio of Mohammad Abdullah, a Full Stack Web Developer from Dhaka, Bangladesh. Specializing in Next.js, React, Node.js, and MongoDB. Building fast, beautiful, and scalable web applications.",
+  keywords: [
+    "Mohammad Abdullah",
+    "Full Stack Developer",
+    "Web Developer Bangladesh",
+    "Next.js Developer",
+    "React Developer",
+    "Portfolio",
+  ],
+  authors: [{ name: "Mohammad Abdullah" }],
+  openGraph: {
+    title: "Mohammad Abdullah — Full Stack Web Developer",
+    description:
+      "Specializing in Next.js, React, Node.js & MongoDB. Building fast, beautiful web apps.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -65,16 +65,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="w-full pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="w-full pt-8 border-t border-white/5 flex justify-center items-center">
           <div className="text-gray-500 text-xs font-medium tracking-widest uppercase">
             © {currentYear} Mohammad Abdullah. All Rights Reserved.
-          </div>
-          <div className="flex items-center space-x-6 text-xs font-bold text-gray-500 tracking-widest uppercase">
-            {["Privacy", "Terms", "Cookies"].map((link) => (
-              <a key={link} href="#" className="hover:text-white transition-colors">
-                {link}
-              </a>
-            ))}
           </div>
         </div>
       </div>

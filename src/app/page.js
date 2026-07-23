@@ -16,7 +16,13 @@ import RocketPreloader from "@/components/RocketPreloader";
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [typedTitle, setTypedTitle] = useState("");
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
   const statCardsRef = useRef([]);
+
+  const titles = ["Full Stack Developer", "React Specialist", "Next.js Developer"];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +31,24 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Typewriter effect
+  useEffect(() => {
+    const current = titles[titleIndex];
+    let timeout;
+    if (!deleting && charIndex < current.length) {
+      timeout = setTimeout(() => setCharIndex((c) => c + 1), 80);
+    } else if (!deleting && charIndex === current.length) {
+      timeout = setTimeout(() => setDeleting(true), 1800);
+    } else if (deleting && charIndex > 0) {
+      timeout = setTimeout(() => setCharIndex((c) => c - 1), 40);
+    } else if (deleting && charIndex === 0) {
+      setDeleting(false);
+      setTitleIndex((i) => (i + 1) % titles.length);
+    }
+    setTypedTitle(current.slice(0, charIndex));
+    return () => clearTimeout(timeout);
+  }, [charIndex, deleting, titleIndex]);
 
   useEffect(() => {
     // GSAP Floating Animation for Stat Cards
@@ -128,14 +152,15 @@ export default function Home() {
                 className="text-4xl md:text-7xl font-extrabold leading-tight"
               >
                 Hi! I&apos;m <span className="text-blue-500">Mohammad Abdullah</span>, <br />
-                <motion.span 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                  className="text-gray-400 italic font-medium"
-                >
-                  I am a Web developer
-                </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.8 }}
+                    className="text-blue-400 italic font-semibold"
+                  >
+                    {typedTitle}
+                    <span className="animate-pulse text-blue-500">|</span>
+                  </motion.span>
               </motion.h1>
               
               <motion.p 

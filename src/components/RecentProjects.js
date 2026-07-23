@@ -49,7 +49,7 @@ const projects = [
     link: "https://ideavault-assainment.vercel.app/",
     github:
       "https://github.com/Md-Abdullah303/IdeaVault-Startup-Idea-Sharing-Platform",
-    tags: ["Next.js", "JavaScrip ES6", "Better Auth", "MongoDB", "Express.js"],
+    tags: ["Next.js", "JavaScript ES6", "Better Auth", "MongoDB", "Express.js"],
   },
   {
     category: "Full Stack Platform",
