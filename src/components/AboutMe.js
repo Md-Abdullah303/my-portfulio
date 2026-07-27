@@ -129,7 +129,7 @@ export default function AboutMe() {
               With a deep understanding of modern web architectures and a keen eye for detail, I transform complex requirements into intuitive digital products. My goal is always to deliver code that is as clean as the interfaces it powers.
             </p>
             <p className="text-slate-400 leading-relaxed text-lg mb-8">
-              When I&apos;m not coding, you&apos;ll probably find me playing competitive online games or enjoying a strategic match of chess. In my free time, I love watching YouTube and anime to unwind, and whenever possible, I always prioritize spending quality time hanging out with my family.
+              When I&apos;m not coding, you&apos;ll probably find me playing <span className="text-blue-400 font-semibold">competitive online games</span> or enjoying a strategic <span className="text-blue-400 font-semibold">match of chess</span>. In my free time, I love watching <span className="text-blue-400 font-semibold">YouTube and anime</span> to unwind, and whenever possible, I always prioritize <span className="text-blue-400 font-semibold">spending quality time hanging out with my family</span>.
             </p>
             
             {/* Tech Stack Section Embedded */}

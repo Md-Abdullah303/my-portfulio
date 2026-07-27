@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
 import { 
   SiJavascript, 
   SiTailwindcss, 
@@ -10,96 +11,51 @@ import {
   SiMongodb, 
   SiGithub, 
   SiVercel,
-  SiExpress
+  SiExpress,
+  SiHtml5,
+  SiCss,
+
+  SiFigma,
+  SiPostman,
+  SiRender,
+  SiStripe,
+  SiJsonwebtokens
 } from "react-icons/si";
 
-const skills = [
-  {
-    title: "JavaScript",
-    description: "Writing efficient, modern, and optimized code for both frontend and backend logic.",
-    icon: SiJavascript,
-    color: "text-yellow-400",
-    bg: "bg-yellow-400/10",
-    shadow: "shadow-yellow-400/20"
-  },
-  {
-    title: "React",
-    description: "Building fast, interactive, and component-based UIs with clean state management.",
-    icon: SiReact,
-    color: "text-sky-400",
-    bg: "bg-sky-400/10",
-    shadow: "shadow-sky-400/20"
-  },
-  {
-    title: "Next.js",
-    description: "Developing SEO-friendly, high-performance web applications with server-side rendering.",
-    icon: SiNextdotjs,
-    color: "text-white",
-    bg: "bg-white/10",
-    shadow: "shadow-white/20"
-  },
-  {
-    title: "Tailwind CSS",
-    description: "Creating responsive, modern, and clean layouts quickly using utility-first styling.",
-    icon: SiTailwindcss,
-    color: "text-sky-400",
-    bg: "bg-sky-400/10",
-    shadow: "shadow-sky-400/20"
-  },
-  {
-    title: "Node.js",
-    description: "Developing scalable backend logic and high-performance server-side applications.",
-    icon: SiNodedotjs,
-    color: "text-emerald-500",
-    bg: "bg-emerald-500/10",
-    shadow: "shadow-emerald-500/20"
-  },
-  {
-    title: "Express.js",
-    description: "Building robust REST APIs and middleware solutions for modern web applications.",
-    icon: SiExpress,
-    color: "text-slate-300",
-    bg: "bg-slate-300/10",
-    shadow: "shadow-slate-300/20"
-  },
-  {
-    title: "MongoDB",
-    description: "Managing NoSQL databases with flexible schemas for high-performance data storage.",
-    icon: SiMongodb,
-    color: "text-emerald-600",
-    bg: "bg-emerald-600/10",
-    shadow: "shadow-emerald-600/20"
-  },
-  {
-    title: "Git & GitHub",
-    description: "Expert version control and collaborative development using Git and GitHub workflows.",
-    icon: SiGithub,
-    color: "text-white",
-    bg: "bg-white/10",
-    shadow: "shadow-white/20"
-  },
-  {
-    title: "Vercel & Netlify",
-    description: "Professional deployment and hosting solutions for modern web applications.",
-    icon: SiVercel,
-    color: "text-white",
-    bg: "bg-white/10",
-    shadow: "shadow-white/20"
-  },
+const skillsRow1 = [
+  { title: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
+  { title: "React.js", icon: SiReact, color: "text-sky-400" },
+  { title: "Next.js", icon: SiNextdotjs, color: "text-white" },
+  { title: "HTML5", icon: SiHtml5, color: "text-orange-500" },
+  { title: "CSS3", icon: SiCss, color: "text-blue-500" },
+  { title: "Tailwind CSS", icon: SiTailwindcss, color: "text-sky-400" },
+  { title: "Figma", icon: SiFigma, color: "text-pink-500" },
+  { title: "Stripe", icon: SiStripe, color: "text-indigo-400" },
+];
+
+const skillsRow2 = [
+  { title: "Node.js", icon: SiNodedotjs, color: "text-emerald-500" },
+  { title: "Express.js", icon: SiExpress, color: "text-slate-300" },
+  { title: "MongoDB", icon: SiMongodb, color: "text-emerald-600" },
+  { title: "JWT Auth", icon: SiJsonwebtokens, color: "text-purple-400" },
+  { title: "Git & GitHub", icon: SiGithub, color: "text-white" },
+  { title: "Vercel", icon: SiVercel, color: "text-white" },
+  { title: "Render", icon: SiRender, color: "text-white" },
+  { title: "Postman", icon: SiPostman, color: "text-orange-400" },
 ];
 
 export default function Skills() {
   return (
-    <section className="py-16 md:py-24 px-6 relative overflow-hidden" id="skills">
+    <section className="py-16 md:py-24 relative overflow-hidden" id="skills">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-600/10 blur-[120px] rounded-full"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1400px] mx-auto px-6">
         {/* Section Header */}
-        <header className="text-center mb-16 md:mb-24">
+        <header className="text-center mb-16 md:mb-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -126,33 +82,36 @@ export default function Skills() {
             Leveraging a modern tech stack to build high-performance, accessible, and user-centric digital solutions.
           </motion.p>
         </header>
+      </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skills.map((skill, index) => (
-            <motion.article 
-              key={skill.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="glass-card group p-1 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-[2rem] border border-slate-700/50 hover:border-blue-500/30 transition-all duration-500 shadow-2xl"
-            >
-              <div className="p-10 h-full flex flex-col items-center text-center">
-                <div className={`w-20 h-20 flex items-center justify-center rounded-2xl ${skill.bg} border border-slate-700/50 mb-8 group-hover:scale-110 transition-transform duration-500 relative`}>
-                  {/* Icon Glow */}
-                  <div className={`absolute inset-0 blur-2xl ${skill.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                  <skill.icon className={`text-5xl ${skill.color} relative z-10 drop-shadow-xl`} />
-                </div>
-                
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-blue-400 transition-colors">{skill.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors">
-                  {skill.description}
-                </p>
+      {/* Marquee Section */}
+      <div className="w-full relative [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] mt-10 md:mt-16 py-10">
+        <div className="space-y-8 md:space-y-12">
+          {/* Row 1 - Left to Right */}
+          <Marquee speed={50} pauseOnHover={true} gradient={false}>
+            {skillsRow1.map((skill, index) => (
+              <div 
+                key={`row1-${index}`}
+                className="flex items-center gap-4 mx-4 md:mx-6 my-6 py-4 md:py-5 px-8 md:px-10 rounded-full border border-white/10 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 hover:border-blue-500/50 hover:bg-slate-800/80 hover:scale-110 cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] group"
+              >
+                <skill.icon className={`text-3xl md:text-4xl ${skill.color} group-hover:scale-110 transition-transform duration-300 drop-shadow-xl`} />
+                <span className="text-xl md:text-2xl font-bold text-slate-200 tracking-wide group-hover:text-white transition-colors">{skill.title}</span>
               </div>
-            </motion.article>
-          ))}
+            ))}
+          </Marquee>
+
+          {/* Row 2 - Right to Left */}
+          <Marquee speed={45} direction="right" pauseOnHover={true} gradient={false}>
+            {skillsRow2.map((skill, index) => (
+              <div 
+                key={`row2-${index}`}
+                className="flex items-center gap-4 mx-4 md:mx-6 my-6 py-4 md:py-5 px-8 md:px-10 rounded-full border border-white/10 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 hover:border-emerald-500/50 hover:bg-slate-800/80 hover:scale-110 cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] group"
+              >
+                <skill.icon className={`text-3xl md:text-4xl ${skill.color} group-hover:scale-110 transition-transform duration-300 drop-shadow-xl`} />
+                <span className="text-xl md:text-2xl font-bold text-slate-200 tracking-wide group-hover:text-white transition-colors">{skill.title}</span>
+              </div>
+            ))}
+          </Marquee>
         </div>
       </div>
     </section>

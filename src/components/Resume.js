@@ -20,17 +20,11 @@ export default function Resume() {
 
   const experience = [
     {
-      period: "2024",
+      period: "2026",
       institution: "LegalEase Platform",
       role: "Full Stack Developer",
       description: "Architected and developed a comprehensive legal tech platform. Engineered core features including lawyer discovery, consultation booking, integrated payment gateways (Stripe), and dedicated admin/lawyer dashboards using Next.js and MongoDB.",
-    },
-    {
-      period: "2023 - 2024",
-      institution: "HireLoop & IdeaVault",
-      role: "Frontend Engineer",
-      description: "Built a modern job hunting portal (HireLoop) and a startup idea sharing platform (IdeaVault). Implemented streamlined job discovery flows, complex user authentication (Better Auth), and focused on high-performance animations and user experience with React and Tailwind CSS.",
-    },
+    }
   ];
 
   return (
@@ -141,7 +135,7 @@ export default function Resume() {
         className="mt-20 flex justify-center"
       >
         <motion.a
-          href="/Full_Stack_Email_Abdullah.pdf"
+          href="/MD_ABDULLAH_FULL_STACK_DEVELOPER_RESUME (1).pdf"
           download="Mohammad_Abdullah_Resume.pdf"
           whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0,102,255,0.35)" }}
           whileTap={{ scale: 0.97 }}

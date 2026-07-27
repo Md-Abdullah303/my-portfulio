@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
@@ -106,7 +105,7 @@ export default function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className={`fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300 ${
-              scrolled ? "bg-black/40 backdrop-blur-md border-b border-white/5 py-3" : "py-6"
+              scrolled ? "bg-black/60 backdrop-blur-xl py-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]" : "py-6"
             }`}
           >
             <div className="max-w-7xl mx-auto">
@@ -138,7 +137,7 @@ export default function Home() {
 
                 {/* Desktop Download CV */}
                 <motion.a
-                  href="/Full_Stack_Email_Abdullah.pdf"
+                  href="/MD_ABDULLAH_FULL_STACK_DEVELOPER_RESUME (1).pdf"
                   download="Mohammad_Abdullah_Resume.pdf"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -207,7 +206,7 @@ export default function Home() {
                       {/* Download CV inside mobile menu */}
                       <li className="px-6 pt-3 pb-2 border-t border-white/5 mt-2">
                         <a
-                          href="/Full_Stack_Email_Abdullah.pdf"
+                          href="/MD_ABDULLAH_FULL_STACK_DEVELOPER_RESUME (1).pdf"
                           download="Mohammad_Abdullah_Resume.pdf"
                           onClick={() => setMobileOpen(false)}
                           className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl accent-blue text-sm font-bold text-white"
@@ -278,7 +277,7 @@ export default function Home() {
                     Let&apos;s Connect
                   </motion.a>
                   <motion.a
-                    href="/Full_Stack_Email_Abdullah.pdf"
+                    href="/MD_ABDULLAH_FULL_STACK_DEVELOPER_RESUME (1).pdf"
                     download="Mohammad_Abdullah_Resume.pdf"
                     whileHover={{ scale: 1.05, background: "rgba(255, 255, 255, 0.1)" }}
                     whileTap={{ scale: 0.95 }}

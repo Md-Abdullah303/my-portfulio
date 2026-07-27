@@ -8,7 +8,8 @@ import Link from "next/link";
 import { projects } from "../data/projects";
 
 export default function RecentProjects() {
-  const visibleProjects = projects.slice(0, 6);
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
     <section
@@ -120,23 +121,27 @@ export default function RecentProjects() {
         ))}
       </div>
 
-      {projects.length > 6 && (
+      {projects.length > 3 && (
         <div className="flex justify-center mt-16">
-          <Link
-            href="/projects"
-            className="px-8 py-4 rounded-2xl bg-[#16181f] hover:bg-[#20232d] border border-white/10 text-white font-bold text-base flex items-center gap-2 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] group"
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="px-8 py-4 rounded-2xl bg-[#16181f] hover:bg-[#20232d] border border-white/10 text-white font-bold text-base flex items-center gap-2 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] group cursor-pointer"
           >
-            Show All Projects
+            {showAll ? "Show Less" : "Show All Projects"}
             <svg
-              className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+              className={`w-5 h-5 transition-transform duration-300 ${showAll ? "group-hover:-translate-y-1" : "group-hover:translate-x-1"}`}
               fill="none"
               stroke="currentColor"
               strokeWidth="2.5"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              {showAll ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              )}
             </svg>
-          </Link>
+          </button>
         </div>
       )}
     </section>

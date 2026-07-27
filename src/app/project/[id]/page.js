@@ -2,6 +2,7 @@ import { projects } from "@/data/projects";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FiArrowLeft, FiExternalLink, FiGithub, FiTarget, FiActivity } from "react-icons/fi";
 
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
@@ -25,104 +26,125 @@ export default async function ProjectDetails({ params }) {
   }
 
   return (
-    <main className="min-h-screen bg-[#06080d] text-white py-24 px-6 relative overflow-x-hidden selection:bg-blue-500/30">
-      {/* Background glow */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-50">
-        <div className="absolute top-[10%] left-[5%] w-72 h-72 bg-blue-500/10 blur-[100px] rounded-full" />
+    <main className="min-h-screen bg-[#050505] text-white py-24 px-6 relative overflow-x-hidden selection:bg-blue-500/30">
+      {/* Dynamic Background Glows */}
+      <div className="fixed inset-0 -z-10 pointer-events-none opacity-50">
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600/10 blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-4xl mx-auto">
-        {/* Back Button */}
+      <div className="max-w-6xl mx-auto">
+        {/* Navigation */}
         <Link
           href="/#recent-projects"
-          className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-12 group font-semibold"
+          className="inline-flex items-center gap-3 text-slate-400 hover:text-white transition-all duration-300 mb-12 group font-semibold bg-white/5 hover:bg-white/10 px-5 py-2.5 rounded-full border border-white/10 hover:border-white/20 backdrop-blur-md shadow-lg"
         >
-          <svg className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-          </svg>
+          <FiArrowLeft className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" />
           Back to Portfolio
         </Link>
 
-        {/* Header */}
-        <header className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-[2px] bg-blue-500"></div>
-            <span className="text-blue-500 font-bold uppercase tracking-widest text-sm">{project.category}</span>
+        {/* Hero Header */}
+        <header className="mb-16 relative">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-px w-12 bg-gradient-to-r from-blue-500 to-transparent"></div>
+            <span className="text-blue-400 font-bold uppercase tracking-[0.2em] text-sm bg-blue-500/10 px-4 py-1.5 rounded-full border border-blue-500/20">
+              {project.category}
+            </span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">{project.title}</h1>
-          <p className="text-gray-400 text-lg leading-relaxed">{project.description}</p>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-slate-400 leading-tight">
+            {project.title}
+          </h1>
+          <p className="text-slate-300 text-xl leading-relaxed max-w-3xl font-medium">
+            {project.description}
+          </p>
         </header>
 
-        {/* Project Image */}
-        <div className="relative w-full aspect-video rounded-3xl overflow-hidden bg-[#16181f] border border-white/10 mb-16 shadow-2xl">
+        {/* Project Showcase Image */}
+        <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] rounded-[2rem] overflow-hidden bg-[#0a0a0a] border border-white/10 mb-20 shadow-2xl group">
+          <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700 z-10 pointer-events-none"></div>
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover object-top"
+            className="object-cover object-top transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+            priority
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Main Content (Challenges & Future Plans) */}
-          <div className="md:col-span-2 space-y-12">
-            <section>
-              <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                Challenges Faced
+          <div className="lg:col-span-8 space-y-16">
+            <section className="relative glass-card p-8 md:p-10 rounded-[2.5rem] border border-white/5 bg-slate-900/40 backdrop-blur-xl">
+              <div className="absolute -left-2 top-10 w-2 h-16 bg-blue-500 rounded-full hidden md:block blur-[2px]"></div>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-4 text-white">
+                <span className="p-3 bg-blue-500/10 rounded-2xl border border-blue-500/20">
+                  <FiTarget className="w-6 h-6 text-blue-400" />
+                </span>
+                Challenges & Solutions
               </h2>
-              <p className="text-gray-400 leading-relaxed text-lg bg-white/[0.02] border border-white/[0.05] p-6 rounded-2xl">
-                {project.challenges}
-              </p>
+              <div className="prose prose-invert max-w-none">
+                <p className="text-slate-300 leading-loose text-lg whitespace-pre-wrap">
+                  {project.challenges}
+                </p>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
-                Future Plans & Improvements
+            <section className="relative glass-card p-8 md:p-10 rounded-[2.5rem] border border-white/5 bg-slate-900/40 backdrop-blur-xl">
+              <div className="absolute -left-2 top-10 w-2 h-16 bg-emerald-500 rounded-full hidden md:block blur-[2px]"></div>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-4 text-white">
+                <span className="p-3 bg-emerald-500/10 rounded-2xl border border-emerald-500/20">
+                  <FiActivity className="w-6 h-6 text-emerald-400" />
+                </span>
+                Future Improvements
               </h2>
-              <p className="text-gray-400 leading-relaxed text-lg bg-white/[0.02] border border-white/[0.05] p-6 rounded-2xl">
-                {project.futurePlans}
-              </p>
+              <div className="prose prose-invert max-w-none">
+                <p className="text-slate-300 leading-loose text-lg whitespace-pre-wrap">
+                  {project.futurePlans}
+                </p>
+              </div>
             </section>
           </div>
 
           {/* Sidebar (Tech Stack & Links) */}
-          <aside className="space-y-12">
-            <section>
-              <h3 className="text-lg font-bold mb-4 uppercase tracking-wider text-gray-300">Technology Stack</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-4 py-2 rounded-xl bg-blue-500/10 text-blue-400 font-semibold text-sm border border-blue-500/20"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </section>
-
-            <section className="space-y-4">
+          <aside className="lg:col-span-4 space-y-8 lg:sticky top-32 h-fit">
+            {/* Action Cards */}
+            <div className="glass-card p-6 rounded-[2rem] space-y-4 border border-white/5 bg-slate-900/40 backdrop-blur-xl">
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold flex items-center justify-center gap-3 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                className="w-full py-4 px-6 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold flex items-center justify-center gap-3 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] group"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-                Visit Live Site
+                <FiExternalLink className="w-5 h-5 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                Visit Live Platform
               </a>
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-xl bg-[#16181f] hover:bg-[#20232d] border border-white/10 text-white font-bold flex items-center justify-center gap-3 transition-all duration-300"
+                className="w-full py-4 px-6 rounded-2xl bg-slate-800/80 hover:bg-slate-700/80 border border-white/10 text-white font-bold flex items-center justify-center gap-3 transition-all duration-300 hover:border-white/20 group"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
+                <FiGithub className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 View Source Code
               </a>
-            </section>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="glass-card p-8 rounded-[2rem] border border-white/5 bg-slate-900/40 backdrop-blur-xl">
+              <h3 className="text-sm font-bold mb-6 uppercase tracking-[0.2em] text-slate-400">
+                Core Technologies
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-4 py-2 rounded-xl bg-white/5 text-slate-300 font-medium text-sm border border-white/10 hover:bg-white/10 hover:border-white/20 transition-colors cursor-default"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </aside>
         </div>
       </div>
