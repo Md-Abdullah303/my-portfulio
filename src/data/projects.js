@@ -1,5 +1,30 @@
 export const projects = [
   {
+    id: "aparna-sarees",
+    category: "E-Commerce Fashion Platform",
+    title: "Aparna Sarees",
+    description:
+      "Aparna Sarees is a fully functional, elegant e-commerce platform dedicated to sarees. It features secure authentication, dynamic product browsing, real-time Stripe payments, a user dashboard for managing listings and payment history, and a contact form powered by Nodemailer.",
+    image: "https://i.ibb.co.com/Pv2PXd2T/Screenshot-2026-07-31-224317.png",
+    link: "https://aparna-sarees-client.vercel.app/",
+    github: "https://github.com/Md-Abdullah303/aparna-sarees-client",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "Express.js",
+      "Better Auth",
+      "Stripe",
+      "Framer Motion",
+      "Nodemailer",
+    ],
+    challenges:
+      "Building the entire project — both client and server — in TypeScript without prior TS experience was the biggest challenge. Maintaining type safety across a complex codebase was tough at first, but learning on the go with AI assistance made it achievable.",
+    futurePlans:
+      "Planning to implement a full role-based system with a dedicated admin panel for managing products, orders, and users — turning it into a production-ready multi-role platform.",
+  },
+  {
     id: "legalease",
     category: "Legal Tech Platform",
     title: "LegalEase",
