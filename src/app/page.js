@@ -12,19 +12,20 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import RocketPreloader from "@/components/RocketPreloader";
 
+const TITLES = ["Full Stack Developer", "React Specialist", "Next.js Developer"];
+const NAV_LINKS = ["HOME", "ABOUT", "SKILLS", "RESUME", "PROJECTS", "CONTACT"];
+
 export default function Home() {
   const [scrolled, setScrolled]     = useState(false);
   const [loading, setLoading]       = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [typedTitle, setTypedTitle] = useState("");
   const [titleIndex, setTitleIndex] = useState(0);
   const [charIndex, setCharIndex]   = useState(0);
   const [deleting, setDeleting]     = useState(false);
   const statCardsRef = useRef([]);
 
-  const titles = ["Full Stack Developer", "React Specialist", "Next.js Developer"];
-
-  const navLinks = ["HOME", "ABOUT", "SKILLS", "RESUME", "PROJECTS", "CONTACT"];
+  const typedTitle = TITLES[titleIndex]?.slice(0, charIndex) || "";
+  const navLinks = NAV_LINKS;
 
   const navHref = (item) =>
     item === "HOME" ? "#"
@@ -35,7 +36,7 @@ export default function Home() {
   useEffect(() => {
     const hasLoaded = sessionStorage.getItem("hasLoaded");
     if (hasLoaded) {
-      setLoading(false);
+      setTimeout(() => setLoading(false), 0);
     } else {
       sessionStorage.setItem("hasLoaded", "true");
     }
@@ -50,7 +51,7 @@ export default function Home() {
 
   // Typewriter effect
   useEffect(() => {
-    const current = titles[titleIndex];
+    const current = TITLES[titleIndex];
     let timeout;
     if (!deleting && charIndex < current.length) {
       timeout = setTimeout(() => setCharIndex((c) => c + 1), 80);
@@ -59,10 +60,11 @@ export default function Home() {
     } else if (deleting && charIndex > 0) {
       timeout = setTimeout(() => setCharIndex((c) => c - 1), 40);
     } else if (deleting && charIndex === 0) {
-      setDeleting(false);
-      setTitleIndex((i) => (i + 1) % titles.length);
+      timeout = setTimeout(() => {
+        setDeleting(false);
+        setTitleIndex((i) => (i + 1) % TITLES.length);
+      }, 0);
     }
-    setTypedTitle(current.slice(0, charIndex));
     return () => clearTimeout(timeout);
   }, [charIndex, deleting, titleIndex]);
 
@@ -137,7 +139,7 @@ export default function Home() {
 
                 {/* Desktop Download CV */}
                 <motion.a
-                  href="/MD_ABDULLAH_FULL_STACK_DEVELOPER_RESUME (1).pdf"
+                  href="/Mohammad_Abdullah_Resume.pdf"
                   download="Mohammad_Abdullah_Resume.pdf"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -206,7 +208,7 @@ export default function Home() {
                       {/* Download CV inside mobile menu */}
                       <li className="px-6 pt-3 pb-2 border-t border-white/5 mt-2">
                         <a
-                          href="/MD_ABDULLAH_FULL_STACK_DEVELOPER_RESUME (1).pdf"
+                          href="/Mohammad_Abdullah_Resume.pdf"
                           download="Mohammad_Abdullah_Resume.pdf"
                           onClick={() => setMobileOpen(false)}
                           className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl accent-blue text-sm font-bold text-white"
@@ -277,7 +279,7 @@ export default function Home() {
                     Let&apos;s Connect
                   </motion.a>
                   <motion.a
-                    href="/MD_ABDULLAH_FULL_STACK_DEVELOPER_RESUME (1).pdf"
+                    href="/Mohammad_Abdullah_Resume.pdf"
                     download="Mohammad_Abdullah_Resume.pdf"
                     whileHover={{ scale: 1.05, background: "rgba(255, 255, 255, 0.1)" }}
                     whileTap={{ scale: 0.95 }}

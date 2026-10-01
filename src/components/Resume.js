@@ -135,7 +135,7 @@ export default function Resume() {
         className="mt-20 flex justify-center"
       >
         <motion.a
-          href="/MD_ABDULLAH_FULL_STACK_DEVELOPER_RESUME (1).pdf"
+          href="/Mohammad_Abdullah_Resume.pdf"
           download="Mohammad_Abdullah_Resume.pdf"
           whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0,102,255,0.35)" }}
           whileTap={{ scale: 0.97 }}

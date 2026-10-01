@@ -41,7 +41,7 @@ export default function AllProjects() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
           >
-            A comprehensive list of everything I've built, showcasing my journey, experiments, and professional work.
+            A comprehensive list of everything I&apos;ve built, showcasing my journey, experiments, and professional work.
           </motion.p>
         </header>
 
