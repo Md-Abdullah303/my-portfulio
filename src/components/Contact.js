@@ -7,9 +7,9 @@ import emailjs from "@emailjs/browser";
 // ─────────────────────────────────────────────────────────
 //  EmailJS credentials
 // ─────────────────────────────────────────────────────────
-const EMAILJS_SERVICE_ID  = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID  || "service_02bxz8t";
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_zgixh4p";
-const EMAILJS_PUBLIC_KEY  = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  || "b1K_9qb_MCJ9AZB4H";
+const EMAILJS_SERVICE_ID  = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY  = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 const services = [
   { value: "web",   label: "Web Development" },
@@ -59,9 +59,8 @@ function CustomSelect({ value, onChange }) {
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
             exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
             transition={{ duration: 0.15 }}
-            style={{ transformOrigin: "top" }}
             className="absolute z-50 w-full mt-2 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
-            style={{ background: "#0d1425" }}
+            style={{ transformOrigin: "top", background: "#0d1425" }}
           >
             {services.map((s) => (
               <li key={s.value}>
@@ -93,6 +92,13 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!interest) { alert("Please select a service."); return; }
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error("EmailJS credentials are missing in environment variables.");
+      setStatus("error: Email service configuration is missing.");
+      return;
+    }
+
     setStatus("sending");
 
     try {
