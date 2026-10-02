@@ -154,4 +154,64 @@ body {
     background-color: #ffffff;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   }
+
+  /* Animated gradient text */
+  @keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .animate-gradient-x {
+    background-size: 200% auto;
+    animation: gradient-x 4s ease infinite;
+  }
+
+  /* Slow spinning ring around portrait */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 25s linear infinite;
+  }
+
+  /* GPU-accelerated floating for stat cards */
+  @keyframes float-1 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes float-2 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+  @keyframes float-3 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+
+  .animate-float-1 { animation: float-1 4s ease-in-out infinite; }
+  .animate-float-2 { animation: float-2 3.5s ease-in-out 0.5s infinite; }
+  .animate-float-3 { animation: float-3 5s ease-in-out 1s infinite; }
+
+  /* Glow breathe animations (pure CSS, no JS cost) */
+  @keyframes glow-breathe {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+  @keyframes glow-breathe-alt {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.15); opacity: 0.7; }
+  }
+
+  .animate-glow-breathe { animation: glow-breathe 6s ease-in-out infinite; }
+  .animate-glow-breathe-alt { animation: glow-breathe-alt 5s ease-in-out 1s infinite; }
+
+  /* Gentle bounce for scroll indicator */
+  @keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  .animate-bounce-gentle { animation: bounce-gentle 1.5s ease-in-out infinite; }
 }

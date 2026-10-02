@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -19,12 +21,12 @@ export default function Footer() {
           <ul className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm font-bold tracking-widest text-slate-600">
             {["HOME", "ABOUT", "SKILLS", "RESUME", "PROJECTS", "CONTACT"].map((item) => (
               <li key={item}>
-                <a 
+                <Link 
                   href={`#${item === 'HOME' ? '' : item.toLowerCase() === 'projects' ? 'recent-projects' : item.toLowerCase()}`}
                   className="transition-all duration-300 uppercase cursor-pointer hover:text-blue-600 hover:scale-105 inline-block"
                 >
                   {item}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

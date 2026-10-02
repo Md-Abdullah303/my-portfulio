@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const TITLES = ["Full Stack Developer", "React Specialist", "Next.js Developer"];
+const TITLES = ["Full Stack Developer", "Next.js Specialist", "MERN Stack Developer"];
 
 export default function HeroTypewriter() {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -30,7 +30,7 @@ export default function HeroTypewriter() {
   const typedTitle = TITLES[titleIndex]?.slice(0, charIndex) || "";
 
   return (
-    <span className="text-blue-400 italic font-semibold">
+    <span className="text-blue-400 italic font-semibold text-3xl sm:text-4xl md:text-5xl">
       {typedTitle}
       <span className="animate-pulse text-blue-500">|</span>
     </span>

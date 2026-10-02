@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const NAV_LINKS = ["HOME", "ABOUT", "SKILLS", "RESUME", "PROJECTS", "CONTACT"];
 
@@ -32,22 +33,22 @@ export default function Navbar() {
           }`}
         >
           {/* Brand Name (Logo removed) */}
-          <a href="#" className="flex items-center group">
+          <Link href="#" className="flex items-center group">
             <span className="font-extrabold text-base md:text-lg tracking-wide text-slate-900 group-hover:text-blue-600 transition-colors">
               Mohammad Abdullah
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav Links */}
           <ul className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((item) => (
               <li key={item}>
-                <a
+                <Link
                   href={navHref(item)}
                   className="px-4 py-2 rounded-full text-xs font-bold tracking-widest text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-all uppercase"
                 >
                   {item}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -89,13 +90,13 @@ export default function Navbar() {
             <ul className="space-y-1">
               {NAV_LINKS.map((item) => (
                 <li key={item}>
-                  <a
+                  <Link
                     href={navHref(item)}
                     onClick={() => setMobileOpen(false)}
                     className="block px-4 py-3 rounded-xl text-sm font-bold tracking-wider text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all uppercase"
                   >
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li className="pt-3 border-t border-slate-200">
