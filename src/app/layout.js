@@ -19,6 +19,11 @@ export const metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Mohammad Abdullah" }],
+  icons: {
+    icon: "/MD_Abdullah.png",
+    shortcut: "/MD_Abdullah.png",
+    apple: "/MD_Abdullah.png",
+  },
   openGraph: {
     title: "Mohammad Abdullah — Full Stack Web Developer",
     description:
