@@ -27,17 +27,14 @@ export default function Navbar() {
         <nav
           className={`flex items-center justify-between px-6 py-3.5 rounded-full transition-all duration-300 ${
             scrolled
-              ? "bg-[#07090e]/85 backdrop-blur-xl border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-              : "bg-white/[0.03] backdrop-blur-md border border-white/[0.06]"
+              ? "bg-white/90 backdrop-blur-xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
+              : "bg-white/70 backdrop-blur-md border border-slate-200/70 shadow-sm"
           }`}
         >
-          {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center font-black text-white text-base shadow-md group-hover:scale-105 transition-transform">
-              A
-            </div>
-            <span className="font-extrabold text-sm md:text-base tracking-wider text-white">
-              ABDULLAH<span className="text-blue-500">.</span>
+          {/* Brand Name (Logo removed) */}
+          <a href="#" className="flex items-center group">
+            <span className="font-extrabold text-base md:text-lg tracking-wide text-slate-900 group-hover:text-blue-600 transition-colors">
+              Mohammad Abdullah
             </span>
           </a>
 
@@ -47,7 +44,7 @@ export default function Navbar() {
               <li key={item}>
                 <a
                   href={navHref(item)}
-                  className="px-4 py-2 rounded-full text-xs font-bold tracking-widest text-slate-400 hover:text-white hover:bg-white/[0.06] transition-all uppercase"
+                  className="px-4 py-2 rounded-full text-xs font-bold tracking-widest text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-all uppercase"
                 >
                   {item}
                 </a>
@@ -60,7 +57,7 @@ export default function Navbar() {
             <a
               href="/Mohammad_Abdullah_Resume.pdf"
               download="Mohammad_Abdullah_Resume.pdf"
-              className="accent-blue hover:scale-105 active:scale-95 flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold tracking-wide text-white transition-all shadow-[0_0_20px_rgba(0,102,255,0.35)]"
+              className="accent-blue hover:scale-105 active:scale-95 flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold tracking-wide text-white transition-all shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -73,7 +70,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-xl bg-white/[0.04] border border-white/10 text-slate-300 hover:text-white"
+            className="lg:hidden p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900"
             aria-label="Toggle menu"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -88,20 +85,20 @@ export default function Navbar() {
 
         {/* Mobile Dropdown Menu */}
         {mobileOpen && (
-          <div className="lg:hidden mt-3 rounded-2xl bg-[#090c14]/95 backdrop-blur-2xl border border-white/10 p-5 shadow-2xl transition-all">
+          <div className="lg:hidden mt-3 rounded-2xl bg-white/95 backdrop-blur-2xl border border-slate-200 p-5 shadow-2xl transition-all">
             <ul className="space-y-1">
               {NAV_LINKS.map((item) => (
                 <li key={item}>
                   <a
                     href={navHref(item)}
                     onClick={() => setMobileOpen(false)}
-                    className="block px-4 py-3 rounded-xl text-sm font-bold tracking-wider text-slate-300 hover:text-white hover:bg-white/[0.06] transition-all uppercase"
+                    className="block px-4 py-3 rounded-xl text-sm font-bold tracking-wider text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all uppercase"
                   >
                     {item}
                   </a>
                 </li>
               ))}
-              <li className="pt-3 border-t border-white/10">
+              <li className="pt-3 border-t border-slate-200">
                 <a
                   href="/Mohammad_Abdullah_Resume.pdf"
                   download="Mohammad_Abdullah_Resume.pdf"

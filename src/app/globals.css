@@ -5,57 +5,58 @@ html {
 }
 
 :root {
-  --background: #050505;
-  --foreground: #ffffff;
+  --background: #f8fafc;
+  --foreground: #0f172a;
 }
 
 body {
   color: var(--foreground);
-  background: radial-gradient(circle at 80% 20%, #0c1e4a 0%, #050505 50%);
+  background: radial-gradient(circle at 80% 10%, #e0e7ff 0%, #f8fafc 50%);
   background-color: var(--background);
   min-height: 100vh;
 }
 
 @layer utilities {
   .glass-effect {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.8);
   }
 
   .glass-nav {
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: none;
+    border: 1px solid rgba(226, 232, 240, 0.7);
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glass-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    background: #ffffff;
+    box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.1);
   }
 
   .text-glow {
-    text-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.25);
   }
 
   .accent-blue {
-    background: linear-gradient(135deg, #0066ff 0%, #0044cc 100%);
-    box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
   }
 
   .portrait-glow {
-    box-shadow: 0 0 100px 20px rgba(13, 58, 163, 0.3);
+    box-shadow: 0 20px 60px -15px rgba(37, 99, 235, 0.25);
   }
 
   @keyframes fadeInUp {
@@ -75,7 +76,7 @@ body {
 
   .gradient-border-card {
     position: relative;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(239, 68, 68, 0.2) 100%);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(226, 232, 240, 0.8) 100%);
     padding: 1px;
     border-radius: 1rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -83,11 +84,11 @@ body {
   
   .gradient-border-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.2);
   }
 
   .card-inner {
-    background-color: #0d1425;
+    background-color: #ffffff;
     border-radius: 0.95rem;
     height: 100%;
     display: flex;
@@ -98,7 +99,7 @@ body {
   }
 
   .dashed-divider {
-    background-image: linear-gradient(to bottom, #1e293b 50%, transparent 50%);
+    background-image: linear-gradient(to bottom, #cbd5e1 50%, transparent 50%);
     background-size: 1px 12px;
     width: 1px;
   }
@@ -111,7 +112,7 @@ body {
   .submit-button-container {
     display: inline-flex;
     align-items: center;
-    background-color: #0066ff;
+    background-color: #2563eb;
     border-radius: 9999px;
     padding: 6px;
     padding-left: 28px;
@@ -121,7 +122,7 @@ body {
 
   .submit-button-container:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.35);
   }
 
   .arrow-icon-circle {
@@ -136,20 +137,21 @@ body {
   }
 
   .form-input-custom {
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
     border-radius: 16px;
     padding: 14px 20px;
     width: 100%;
     font-size: 0.875rem;
-    color: #ffffff;
+    color: #0f172a;
     transition: all 0.3s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
   }
 
   .form-input-custom:focus {
     outline: none;
-    border-color: #0066ff;
-    background-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.1);
+    border-color: #2563eb;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   }
 }

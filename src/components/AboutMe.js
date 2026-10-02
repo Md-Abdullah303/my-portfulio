@@ -7,13 +7,13 @@ export default function AboutMe() {
     <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto" id="about">
       {/* Header Section */}
       <header className="text-center mb-12 md:mb-20">
-        <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium tracking-wider uppercase">
+        <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-semibold tracking-wider uppercase">
           My Story
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Me</span>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6">
+          About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Me</span>
         </h2>
-        <p className="max-w-2xl mx-auto text-slate-400 leading-relaxed text-lg">
+        <p className="max-w-2xl mx-auto text-slate-600 leading-relaxed text-lg font-normal">
           I bridge the gap between complex logic and elegant design, crafting digital experiences that resonate and perform.
         </p>
       </header>
@@ -21,13 +21,13 @@ export default function AboutMe() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left Column (Profile Card) */}
         <aside className="lg:col-span-4 space-y-8">
-          <div className="glass-card p-8 flex flex-col items-center text-center border border-blue-500/20 rounded-[2.5rem] bg-slate-900/40 backdrop-blur-2xl relative overflow-hidden group">
+          <div className="bg-white p-8 flex flex-col items-center text-center border border-slate-200 rounded-[2.5rem] shadow-xl relative overflow-hidden group">
             {/* Background Glow */}
-            <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-600/10 blur-[80px] rounded-full group-hover:bg-blue-600/20 transition-all duration-700"></div>
+            <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-100 blur-[60px] rounded-full"></div>
 
             {/* Portrait Image */}
             <div
-              className="w-full aspect-square mb-8 overflow-hidden rounded-[2rem] relative border border-slate-700/50 shadow-2xl"
+              className="w-full aspect-square mb-8 overflow-hidden rounded-[2rem] relative border border-slate-200 shadow-md"
             >
               <Image
                 src="/profile.jpg"
@@ -40,14 +40,14 @@ export default function AboutMe() {
             </div>
 
             {/* Status Badge */}
-            <div className="flex items-center gap-2 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20 mb-6">
+            <div className="flex items-center gap-2 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-200 mb-6">
               <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-              <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wide">Available for projects</span>
+              <span className="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Available for projects</span>
             </div>
 
             {/* Name and Bio */}
-            <h2 className="text-3xl font-bold text-white mb-3 tracking-tight">Mohammad Abdullah</h2>
-            <p className="text-slate-400 text-sm leading-relaxed mb-8 px-2">
+            <h2 className="text-3xl font-extrabold text-slate-900 mb-3 tracking-tight">Mohammad Abdullah</h2>
+            <p className="text-slate-600 text-sm leading-relaxed mb-8 px-2">
               Full Stack Developer specializing in building scalable web applications and high-performance digital products.
             </p>
 
@@ -62,7 +62,7 @@ export default function AboutMe() {
                   href={social.href}
                   target={social.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-800/50 border border-blue-500/30 text-slate-300 transition-all hover:-translate-y-1 hover:bg-blue-600/20 hover:text-white shadow-lg"
+                  className="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-50 border border-slate-200 text-slate-700 transition-all hover:-translate-y-1 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300 shadow-sm"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d={social.icon}></path>
@@ -74,7 +74,7 @@ export default function AboutMe() {
             {/* Call to Action */}
             <a
               href="#contact"
-              className="w-full bg-blue-600 hover:bg-blue-700 active:scale-98 text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-lg shadow-blue-500/30 block text-center uppercase tracking-widest text-sm"
+              className="w-full accent-blue text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-md hover:shadow-lg hover:brightness-105 active:scale-98 block text-center uppercase tracking-widest text-sm"
             >
               Let&apos;s Connect
             </a>
@@ -84,35 +84,34 @@ export default function AboutMe() {
         {/* Right Content Grid */}
         <div className="lg:col-span-8 flex flex-col gap-10">
           {/* Bio Section */}
-          <section className="glass-card p-10 bg-slate-900/40 border border-blue-500/10 rounded-[2.5rem] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 blur-[60px] rounded-full"></div>
-            <h3 className="text-3xl font-bold text-white mb-6">Expertise in Digital Innovation</h3>
-            <p className="text-slate-300 leading-relaxed mb-6 text-lg">
-              Hello! I&apos;m <span className="text-blue-400 font-semibold">Mohammad Abdullah</span>, a developer who thrives at the intersection of aesthetics and functionality. I specialize in building robust applications that provide seamless user experiences.
+          <section className="bg-white p-10 border border-slate-200 rounded-[2.5rem] shadow-xl relative overflow-hidden">
+            <h3 className="text-3xl font-extrabold text-slate-900 mb-6">Expertise in Digital Innovation</h3>
+            <p className="text-slate-700 leading-relaxed mb-6 text-lg">
+              Hello! I&apos;m <span className="text-blue-600 font-bold">Mohammad Abdullah</span>, a developer who thrives at the intersection of aesthetics and functionality. I specialize in building robust applications that provide seamless user experiences.
             </p>
-            <p className="text-slate-400 leading-relaxed text-lg mb-8">
+            <p className="text-slate-600 leading-relaxed text-lg mb-8">
               With a deep understanding of modern web architectures and a keen eye for detail, I transform complex requirements into intuitive digital products. My goal is always to deliver code that is as clean as the interfaces it powers.
             </p>
-            <p className="text-slate-400 leading-relaxed text-lg mb-8">
-              When I&apos;m not coding, you&apos;ll probably find me playing <span className="text-blue-400 font-semibold">competitive online games</span> or enjoying a strategic <span className="text-blue-400 font-semibold">match of chess</span>. In my free time, I love watching <span className="text-blue-400 font-semibold">YouTube and anime</span> to unwind, and whenever possible, I always prioritize <span className="text-blue-400 font-semibold">spending quality time hanging out with my family</span>.
+            <p className="text-slate-600 leading-relaxed text-lg mb-8">
+              When I&apos;m not coding, you&apos;ll probably find me playing <span className="text-blue-600 font-semibold">competitive online games</span> or enjoying a strategic <span className="text-blue-600 font-semibold">match of chess</span>. In my free time, I love watching <span className="text-blue-600 font-semibold">YouTube and anime</span> to unwind, and whenever possible, I always prioritize <span className="text-blue-600 font-semibold">spending quality time hanging out with my family</span>.
             </p>
 
             {/* Tech Stack Section Embedded */}
-            <div className="pt-8 border-t border-slate-800/50">
-              <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-[0.2em] mb-6">Core Technology Stack</h4>
+            <div className="pt-8 border-t border-slate-100">
+              <h4 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-6">Core Technology Stack</h4>
               <div className="flex flex-wrap items-center gap-6">
                 {[
-                  { name: "React", icon: SiReact, color: "text-sky-400", shadow: "shadow-[0_0_20px_rgba(56,189,248,0.2)]" },
-                  { name: "Next.js", icon: SiNextdotjs, color: "text-white", shadow: "shadow-[0_0_20px_rgba(255,255,255,0.15)]" },
-                  { name: "MongoDB", icon: SiMongodb, color: "text-emerald-500", shadow: "shadow-[0_0_20px_rgba(16,185,129,0.2)]" },
-                  { name: "Express.js", icon: SiExpress, color: "text-slate-300", shadow: "shadow-[0_0_20px_rgba(147,197,253,0.15)]" },
+                  { name: "React", icon: SiReact, color: "text-sky-500" },
+                  { name: "Next.js", icon: SiNextdotjs, color: "text-slate-900" },
+                  { name: "MongoDB", icon: SiMongodb, color: "text-emerald-600" },
+                  { name: "Express.js", icon: SiExpress, color: "text-slate-700" },
                 ].map((tech) => (
                   <div
                     key={tech.name}
-                    className={`w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-slate-800/60 hover:scale-110 hover:-translate-y-1 rounded-2xl border border-blue-500/20 backdrop-blur-sm ${tech.shadow} transition-all duration-300`}
+                    className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-slate-50 hover:scale-110 hover:-translate-y-1 rounded-2xl border border-slate-200 transition-all duration-300 shadow-sm"
                     title={tech.name}
                   >
-                    <tech.icon className={`text-3xl md:text-4xl ${tech.color} drop-shadow-md`} />
+                    <tech.icon className={`text-3xl md:text-4xl ${tech.color}`} />
                   </div>
                 ))}
               </div>
@@ -125,39 +124,38 @@ export default function AboutMe() {
               {
                 title: "Frontend Engineering",
                 desc: "Crafting highly interactive, responsive, and accessible user interfaces using React and Next.js.",
-                icon: <FiLayout className="text-blue-400" />,
-                gradient: "from-blue-500/20 to-transparent"
+                icon: <FiLayout className="text-blue-600" />,
+                bg: "bg-blue-50"
               },
               {
                 title: "Backend Development",
                 desc: "Designing scalable server-side architectures and efficient database schemas with Node.js and MongoDB.",
-                icon: <FiCode className="text-emerald-400" />,
-                gradient: "from-emerald-500/20 to-transparent"
+                icon: <FiCode className="text-emerald-600" />,
+                bg: "bg-emerald-50"
               },
               {
                 title: "Optimized Performance",
                 desc: "Focusing on lightning-fast load times, SEO optimization, and clean architectural design.",
-                icon: <FiZap className="text-yellow-400" />,
-                gradient: "from-yellow-500/20 to-transparent"
+                icon: <FiZap className="text-amber-500" />,
+                bg: "bg-amber-50"
               },
               {
                 title: "Collaborative Growth",
                 desc: "Working in agile environments to solve complex problems and deliver value-driven digital solutions.",
-                icon: <FiUsers className="text-purple-400" />,
-                gradient: "from-purple-500/20 to-transparent"
+                icon: <FiUsers className="text-indigo-600" />,
+                bg: "bg-indigo-50"
               },
             ].map((item, i) => (
               <div
                 key={i}
-                className="glass-card p-8 bg-slate-900/40 border border-slate-800/50 rounded-[2rem] hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden group hover:-translate-y-1"
+                className="bg-white p-8 border border-slate-200 rounded-[2rem] hover:border-blue-400 hover:shadow-xl transition-all duration-300 relative overflow-hidden group hover:-translate-y-1 shadow-sm"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 mb-6 text-2xl shadow-inner border border-slate-700/50">
+                  <div className={`w-12 h-12 flex items-center justify-center rounded-xl ${item.bg} mb-6 text-2xl shadow-sm border border-slate-100`}>
                     {item.icon}
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-3">{item.title}</h4>
-                  <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                  <h4 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h4>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}

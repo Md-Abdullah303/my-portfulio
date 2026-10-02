@@ -27,12 +27,12 @@ export default function Resume() {
     <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto" id="resume">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 relative">
         {/* Vertical Separator (Hidden on mobile) */}
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 border-l border-dashed border-slate-700/50"></div>
+        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 border-l border-dashed border-slate-300"></div>
 
         {/* Education Column */}
         <div className="space-y-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4">
-            <span className="w-8 h-1 bg-blue-500 rounded-full"></span>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-12 text-slate-900 flex items-center gap-4">
+            <span className="w-8 h-1.5 bg-blue-600 rounded-full"></span>
             Education
           </h2>
           
@@ -40,20 +40,20 @@ export default function Resume() {
             {education.map((item, index) => (
               <div 
                 key={index}
-                className="space-y-4 group relative"
+                className="space-y-4 group relative bg-white p-7 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                  <div className="inline-block px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase transition-all duration-300 group-hover:bg-blue-500 group-hover:text-white">
+                  <div className="inline-block px-4 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest uppercase transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white">
                     {item.period}
                   </div>
-                  <span className="text-slate-400 text-sm font-medium italic">
+                  <span className="text-slate-500 text-sm font-medium italic">
                     {item.institution}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                   {item.degree}
                 </h3>
-                <p className="text-slate-400 leading-relaxed text-base max-w-lg">
+                <p className="text-slate-600 leading-relaxed text-base max-w-lg">
                   {item.description}
                 </p>
               </div>
@@ -63,8 +63,8 @@ export default function Resume() {
 
         {/* Experience Column */}
         <div className="space-y-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4">
-            <span className="w-8 h-1 bg-emerald-500 rounded-full"></span>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-12 text-slate-900 flex items-center gap-4">
+            <span className="w-8 h-1.5 bg-emerald-600 rounded-full"></span>
             Experience
           </h2>
 
@@ -73,20 +73,20 @@ export default function Resume() {
               experience.map((item, index) => (
                 <div 
                   key={index}
-                  className="space-y-4 group"
+                  className="space-y-4 group bg-white p-7 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                    <div className="inline-block px-4 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest uppercase transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+                    <div className="inline-block px-4 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold tracking-widest uppercase transition-all duration-300 group-hover:bg-emerald-600 group-hover:text-white">
                       {item.period}
                     </div>
-                    <span className="text-slate-400 text-sm font-medium italic">
+                    <span className="text-slate-500 text-sm font-medium italic">
                       {item.institution}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
                     {item.role}
                   </h3>
-                  <p className="text-slate-400 leading-relaxed text-base max-w-lg">
+                  <p className="text-slate-600 leading-relaxed text-base max-w-lg">
                     {item.description}
                   </p>
                 </div>
@@ -107,7 +107,7 @@ export default function Resume() {
         <a
           href="/Mohammad_Abdullah_Resume.pdf"
           download="Mohammad_Abdullah_Resume.pdf"
-          className="accent-blue hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(0,102,255,0.35)] flex items-center gap-3 px-10 py-4 rounded-2xl font-bold text-base text-white transition-all duration-300"
+          className="accent-blue hover:scale-105 active:scale-95 hover:shadow-xl flex items-center gap-3 px-10 py-4 rounded-2xl font-bold text-base text-white transition-all duration-300 shadow-md shadow-blue-500/30"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -117,7 +117,7 @@ export default function Resume() {
       </div>
 
       {/* Decorative bottom line */}
-      <div className="mt-16 w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent"></div>
+      <div className="mt-16 w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
     </section>
   );
 }

@@ -21,46 +21,40 @@ import {
 } from "react-icons/si";
 
 const skillsRow1 = [
-  { title: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
-  { title: "React.js", icon: SiReact, color: "text-sky-400" },
-  { title: "Next.js", icon: SiNextdotjs, color: "text-white" },
+  { title: "JavaScript", icon: SiJavascript, color: "text-amber-500" },
+  { title: "React.js", icon: SiReact, color: "text-sky-500" },
+  { title: "Next.js", icon: SiNextdotjs, color: "text-slate-900" },
   { title: "HTML5", icon: SiHtml5, color: "text-orange-500" },
-  { title: "CSS3", icon: SiCss, color: "text-blue-500" },
-  { title: "Tailwind CSS", icon: SiTailwindcss, color: "text-sky-400" },
+  { title: "CSS3", icon: SiCss, color: "text-blue-600" },
+  { title: "Tailwind CSS", icon: SiTailwindcss, color: "text-sky-500" },
   { title: "Figma", icon: SiFigma, color: "text-pink-500" },
-  { title: "Stripe", icon: SiStripe, color: "text-indigo-400" },
+  { title: "Stripe", icon: SiStripe, color: "text-indigo-600" },
 ];
 
 const skillsRow2 = [
-  { title: "Node.js", icon: SiNodedotjs, color: "text-emerald-500" },
-  { title: "Express.js", icon: SiExpress, color: "text-slate-300" },
+  { title: "Node.js", icon: SiNodedotjs, color: "text-emerald-600" },
+  { title: "Express.js", icon: SiExpress, color: "text-slate-700" },
   { title: "MongoDB", icon: SiMongodb, color: "text-emerald-600" },
-  { title: "JWT Auth", icon: SiJsonwebtokens, color: "text-purple-400" },
-  { title: "Git & GitHub", icon: SiGithub, color: "text-white" },
-  { title: "Vercel", icon: SiVercel, color: "text-white" },
-  { title: "Render", icon: SiRender, color: "text-white" },
-  { title: "Postman", icon: SiPostman, color: "text-orange-400" },
+  { title: "JWT Auth", icon: SiJsonwebtokens, color: "text-purple-600" },
+  { title: "Git & GitHub", icon: SiGithub, color: "text-slate-900" },
+  { title: "Vercel", icon: SiVercel, color: "text-slate-900" },
+  { title: "Render", icon: SiRender, color: "text-slate-900" },
+  { title: "Postman", icon: SiPostman, color: "text-orange-500" },
 ];
 
 export default function Skills() {
   return (
     <section className="py-16 md:py-24 relative overflow-hidden" id="skills">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-600/10 blur-[120px] rounded-full"></div>
-      </div>
-
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Section Header */}
         <header className="text-center mb-16 md:mb-20">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold tracking-widest uppercase">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-semibold tracking-widest uppercase">
             My Expertise
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white">
-            Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Technologies</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 text-slate-900">
+            Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Technologies</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
             Leveraging a modern tech stack to build high-performance, accessible, and user-centric digital solutions.
           </p>
         </header>
@@ -74,10 +68,10 @@ export default function Skills() {
             {skillsRow1.map((skill, index) => (
               <div 
                 key={`row1-${index}`}
-                className="flex items-center gap-4 mx-4 md:mx-6 my-6 py-4 md:py-5 px-8 md:px-10 rounded-full border border-white/10 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 hover:border-blue-500/50 hover:bg-slate-800/80 hover:scale-110 cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] group"
+                className="flex items-center gap-4 mx-4 md:mx-6 my-4 py-4 md:py-5 px-8 md:px-10 rounded-full border border-slate-200 bg-white transition-all duration-300 hover:border-blue-400 hover:shadow-xl hover:scale-105 cursor-pointer shadow-md group"
               >
-                <skill.icon className={`text-3xl md:text-4xl ${skill.color} group-hover:scale-110 transition-transform duration-300 drop-shadow-xl`} />
-                <span className="text-xl md:text-2xl font-bold text-slate-200 tracking-wide group-hover:text-white transition-colors">{skill.title}</span>
+                <skill.icon className={`text-3xl md:text-4xl ${skill.color} transition-transform duration-300 group-hover:scale-110`} />
+                <span className="text-xl md:text-2xl font-bold text-slate-800 tracking-wide group-hover:text-blue-600 transition-colors">{skill.title}</span>
               </div>
             ))}
           </Marquee>
@@ -87,10 +81,10 @@ export default function Skills() {
             {skillsRow2.map((skill, index) => (
               <div 
                 key={`row2-${index}`}
-                className="flex items-center gap-4 mx-4 md:mx-6 my-6 py-4 md:py-5 px-8 md:px-10 rounded-full border border-white/10 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 hover:border-emerald-500/50 hover:bg-slate-800/80 hover:scale-110 cursor-pointer shadow-lg hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] group"
+                className="flex items-center gap-4 mx-4 md:mx-6 my-4 py-4 md:py-5 px-8 md:px-10 rounded-full border border-slate-200 bg-white transition-all duration-300 hover:border-emerald-400 hover:shadow-xl hover:scale-105 cursor-pointer shadow-md group"
               >
-                <skill.icon className={`text-3xl md:text-4xl ${skill.color} group-hover:scale-110 transition-transform duration-300 drop-shadow-xl`} />
-                <span className="text-xl md:text-2xl font-bold text-slate-200 tracking-wide group-hover:text-white transition-colors">{skill.title}</span>
+                <skill.icon className={`text-3xl md:text-4xl ${skill.color} transition-transform duration-300 group-hover:scale-110`} />
+                <span className="text-xl md:text-2xl font-bold text-slate-800 tracking-wide group-hover:text-emerald-600 transition-colors">{skill.title}</span>
               </div>
             ))}
           </Marquee>
