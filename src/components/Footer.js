@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -12,29 +8,23 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
         {/* Brand Heading */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          className="mb-16 text-center"
-        >
+        <div className="mb-16 text-center">
           <h2 className="text-6xl md:text-9xl font-black tracking-tighter uppercase select-none bg-gradient-to-b from-white to-white/20 bg-clip-text text-transparent leading-none">
             Mohammad Abdullah
           </h2>
-        </motion.div>
+        </div>
 
         {/* Navigation Links */}
         <nav className="mb-12">
           <ul className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm font-bold tracking-widest text-gray-400">
             {["HOME", "ABOUT", "SKILLS", "RESUME", "PROJECTS", "CONTACT"].map((item) => (
               <li key={item}>
-                <motion.a 
+                <a 
                   href={`#${item === 'HOME' ? '' : item.toLowerCase() === 'projects' ? 'recent-projects' : item.toLowerCase()}`}
-                  whileHover={{ color: "#fff", scale: 1.1 }}
-                  className="transition-all duration-300 uppercase cursor-pointer"
+                  className="transition-all duration-300 uppercase cursor-pointer hover:text-white hover:scale-105 inline-block"
                 >
                   {item}
-                </motion.a>
+                </a>
               </li>
             ))}
           </ul>
@@ -47,20 +37,19 @@ export default function Footer() {
             { label: "Facebook", href: "https://www.facebook.com/khan.abdullha.284951",             icon: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z", hover: "group-hover:border-blue-500 group-hover:bg-blue-500/10" },
             { label: "LinkedIn", href: "https://www.linkedin.com/in/khanmd-abdullah/",             icon: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z", hover: "group-hover:border-blue-400 group-hover:bg-blue-400/10" },
           ].map((social) => (
-            <motion.a 
+            <a 
               key={social.label} 
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -5 }}
-              className="group"
+              className="group hover:-translate-y-1 transition-transform duration-300"
             >
               <div className={`w-14 h-14 border border-white/10 rounded-full flex items-center justify-center transition-all duration-300 ${social.hover}`}>
                 <svg className="w-6 h-6 text-gray-400 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d={social.icon}></path>
                 </svg>
               </div>
-            </motion.a>
+            </a>
           ))}
         </div>
 

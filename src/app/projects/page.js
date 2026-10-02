@@ -1,9 +1,11 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+
+export const metadata = {
+  title: "All Projects - Mohammad Abdullah",
+  description: "A comprehensive showcase of web applications, tools, and digital solutions built by Mohammad Abdullah.",
+};
 
 export default function AllProjects() {
   return (
@@ -27,33 +29,20 @@ export default function AllProjects() {
 
         {/* Header Section */}
         <header className="text-center mb-16 md:mb-24">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-black tracking-tight mb-6"
-          >
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
             All Projects
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
-          >
+          </h1>
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             A comprehensive list of everything I&apos;ve built, showcasing my journey, experiments, and professional work.
-          </motion.p>
+          </p>
         </header>
 
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <motion.article
+          {projects.map((project) => (
+            <article
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="border border-white/[0.08] bg-[#0d0e12] rounded-[2.5rem] flex flex-col justify-between h-full group hover:border-white/20 transition-all duration-500 shadow-2xl relative overflow-hidden"
+              className="border border-white/[0.08] bg-[#0d0e12] rounded-[2.5rem] flex flex-col justify-between h-full group hover:border-white/20 transition-all duration-500 shadow-2xl relative overflow-hidden hover:-translate-y-1"
             >
               <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-3xl -z-10"></div>
 
@@ -76,6 +65,7 @@ export default function AllProjects() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      unoptimized
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-110"
                     />
@@ -115,7 +105,7 @@ export default function AllProjects() {
                   </svg>
                 </Link>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

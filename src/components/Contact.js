@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 // ─────────────────────────────────────────────────────────
@@ -42,44 +41,36 @@ function CustomSelect({ value, onChange }) {
         <span className={selected ? "text-white" : "text-gray-500"}>
           {selected ? selected.label : "Select Service"}
         </span>
-        <motion.svg
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="w-4 h-4 text-gray-400 flex-shrink-0 ml-2"
+        <svg
+          className={`w-4 h-4 text-gray-400 flex-shrink-0 ml-2 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </motion.svg>
+        </svg>
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <motion.ul
-            initial={{ opacity: 0, y: -8, scaleY: 0.95 }}
-            animate={{ opacity: 1, y: 0, scaleY: 1 }}
-            exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
-            transition={{ duration: 0.15 }}
-            className="absolute z-50 w-full mt-2 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
-            style={{ transformOrigin: "top", background: "#0d1425" }}
-          >
-            {services.map((s) => (
-              <li key={s.value}>
-                <button
-                  type="button"
-                  onClick={() => { onChange(s.value); setOpen(false); }}
-                  className={`w-full text-left px-5 py-3 text-sm font-medium transition-all duration-200 ${
-                    value === s.value
-                      ? "bg-blue-600/20 text-blue-400"
-                      : "text-gray-300 hover:bg-white/5 hover:text-white"
-                  }`}
-                >
-                  {s.label}
-                </button>
-              </li>
-            ))}
-          </motion.ul>
-        )}
-      </AnimatePresence>
+      {open && (
+        <ul
+          className="absolute z-50 w-full mt-2 rounded-2xl overflow-hidden border border-white/10 shadow-2xl transition-all duration-150 animate-fadeIn"
+          style={{ background: "#0d1425" }}
+        >
+          {services.map((s) => (
+            <li key={s.value}>
+              <button
+                type="button"
+                onClick={() => { onChange(s.value); setOpen(false); }}
+                className={`w-full text-left px-5 py-3 text-sm font-medium transition-all duration-200 ${
+                  value === s.value
+                    ? "bg-blue-600/20 text-blue-400"
+                    : "text-gray-300 hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                {s.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
@@ -122,12 +113,7 @@ export default function Contact() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
 
         {/* ── Contact Info Column ─────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          className="space-y-8"
-        >
+        <div className="space-y-8">
           <div className="flex items-center gap-3">
             <div className="w-10 h-[2px] bg-blue-500"></div>
             <span className="text-blue-500 font-bold uppercase tracking-widest text-sm">Contact Me</span>
@@ -173,10 +159,9 @@ export default function Contact() {
                 href: null,
               },
             ].map((item, i) => (
-              <motion.li
+              <li
                 key={i}
-                whileHover={{ x: 10 }}
-                className="flex items-center gap-6 group cursor-pointer"
+                className="flex items-center gap-6 group cursor-pointer transition-transform duration-200 hover:translate-x-2"
               >
                 <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-full flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 flex-shrink-0">
                   {item.icon}
@@ -188,16 +173,13 @@ export default function Contact() {
                 ) : (
                   <span className="text-gray-300 font-medium text-lg">{item.text}</span>
                 )}
-              </motion.li>
+              </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
 
         {/* ── Contact Form Column ─────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
+        <div
           className="glass-card p-8 md:p-12 bg-slate-900/40 border border-blue-500/10 rounded-[2.5rem]"
         >
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
@@ -216,7 +198,6 @@ export default function Contact() {
               </div>
               <div className="space-y-3">
                 <label className="block text-sm font-bold text-gray-400 ml-1">Interest *</label>
-                {/* Hidden input so EmailJS can read the selected value */}
                 <input type="hidden" name="interest" value={interest} />
                 <CustomSelect value={interest} onChange={setInterest} />
               </div>
@@ -229,28 +210,24 @@ export default function Contact() {
 
             {/* Status Messages */}
             {status === "success" && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
+              <div
                 className="flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-semibold px-5 py-3 rounded-2xl"
               >
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Message sent! I&apos;ll get back to you soon.
-              </motion.div>
+              </div>
             )}
             {status.startsWith("error") && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
+              <div
                 className="flex items-center gap-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold px-5 py-3 rounded-2xl"
               >
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
                 {status.split("error: ")[1] || "Something went wrong. Please try again."}
-              </motion.div>
+              </div>
             )}
 
             <div className="pt-4">
@@ -277,7 +254,7 @@ export default function Contact() {
               </button>
             </div>
           </form>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

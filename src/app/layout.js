@@ -20,9 +20,13 @@ export const metadata = {
   ],
   authors: [{ name: "Mohammad Abdullah" }],
   icons: {
-    icon: "/MD_Abdullah.png",
-    shortcut: "/MD_Abdullah.png",
-    apple: "/MD_Abdullah.png",
+    icon: [
+      { url: "/MD_Abdullah.png", type: "image/png" },
+    ],
+    shortcut: ["/MD_Abdullah.png"],
+    apple: [
+      { url: "/MD_Abdullah.png", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Mohammad Abdullah — Full Stack Web Developer",
@@ -37,6 +41,9 @@ import { Analytics } from "@vercel/analytics/react";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
+      <head>
+        <link rel="icon" href="/MD_Abdullah.png" type="image/png" />
+      </head>
       <body className="selection:bg-blue-500 selection:text-white" suppressHydrationWarning>
         {children}
         <Analytics />

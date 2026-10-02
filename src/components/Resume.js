@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Resume() {
   const education = [
     {
@@ -35,24 +31,15 @@ export default function Resume() {
 
         {/* Education Column */}
         <div className="space-y-12">
-          <motion.h2 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.05 }}
-            className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4"
-          >
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4">
             <span className="w-8 h-1 bg-blue-500 rounded-full"></span>
             Education
-          </motion.h2>
+          </h2>
           
           <div className="space-y-12">
             {education.map((item, index) => (
-              <motion.div 
+              <div 
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.05 }}
-                transition={{ delay: index * 0.1 }}
                 className="space-y-4 group relative"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3">
@@ -69,32 +56,23 @@ export default function Resume() {
                 <p className="text-slate-400 leading-relaxed text-base max-w-lg">
                   {item.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Experience Column */}
         <div className="space-y-12">
-          <motion.h2 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.05 }}
-            className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4"
-          >
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4">
             <span className="w-8 h-1 bg-emerald-500 rounded-full"></span>
             Experience
-          </motion.h2>
+          </h2>
 
           <div className="space-y-12">
             {experience.length > 0 ? (
               experience.map((item, index) => (
-                <motion.div 
+                <div 
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.05 }}
-                  transition={{ delay: index * 0.1 }}
                   className="space-y-4 group"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3">
@@ -111,42 +89,32 @@ export default function Resume() {
                   <p className="text-slate-400 leading-relaxed text-base max-w-lg">
                     {item.description}
                   </p>
-                </motion.div>
+                </div>
               ))
             ) : (
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.05 }}
+              <div 
                 className="text-slate-400 text-lg italic pl-4 border-l border-emerald-500/30"
               >
                 None
-              </motion.div>
+              </div>
             )}
           </div>
         </div>
       </div>
 
       {/* Download CV Button */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.05 }}
-        className="mt-20 flex justify-center"
-      >
-        <motion.a
+      <div className="mt-20 flex justify-center">
+        <a
           href="/Mohammad_Abdullah_Resume.pdf"
           download="Mohammad_Abdullah_Resume.pdf"
-          whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0,102,255,0.35)" }}
-          whileTap={{ scale: 0.97 }}
-          className="accent-blue flex items-center gap-3 px-10 py-4 rounded-2xl font-bold text-base text-white transition-all duration-300"
+          className="accent-blue hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(0,102,255,0.35)] flex items-center gap-3 px-10 py-4 rounded-2xl font-bold text-base text-white transition-all duration-300"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
           Download Full Resume
-        </motion.a>
-      </motion.div>
+        </a>
+      </div>
 
       {/* Decorative bottom line */}
       <div className="mt-16 w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent"></div>
