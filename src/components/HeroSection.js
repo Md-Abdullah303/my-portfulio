@@ -4,7 +4,8 @@ import { memo, useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import HeroTypewriter from "@/components/HeroTypewriter";
+import ParticleGrid from "@/components/ParticleGrid";
+import TextMorph from "@/components/TextMorph";
 
 // ── Animated counter hook (requestAnimationFrame-based) ────
 function useCounter(end, duration = 1800) {
@@ -138,7 +139,10 @@ export default function HeroSection() {
 
   return (
     <main className="relative pt-32 md:pt-40 pb-20 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      {/* ── Interactive Particle / Dot Grid Background (Cursor Tracking) ── */}
+      <ParticleGrid />
+
+      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
         {/* ── Left: Text Content ──────────────────────────── */}
         <motion.section
@@ -169,7 +173,7 @@ export default function HeroSection() {
               </span>
               ,{" "}
               <br className="hidden sm:block" />
-              <HeroTypewriter />
+              <TextMorph words={["Developer", "Designer", "Engineer"]} />
             </h1>
           </motion.div>
 

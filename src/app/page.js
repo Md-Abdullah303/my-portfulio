@@ -6,19 +6,17 @@ import Resume from "@/components/Resume";
 import RecentProjects from "@/components/RecentProjects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import TerminalPreloader from "@/components/TerminalPreloader";
 import { getProjects } from "@/lib/core/project";
-
-export const metadata = {
-  title: "Mohammad Abdullah — Full Stack Web Developer | Next.js & React",
-  description:
-    "Portfolio of Mohammad Abdullah, a Full Stack Web Developer from Dhaka, Bangladesh. Specializing in Next.js, React, Node.js, and MongoDB. Building fast, beautiful, and scalable web applications.",
-};
 
 export default async function Home() {
   const projects = await getProjects();
 
   return (
     <div className="relative min-h-screen text-slate-900 bg-[#f8fafc] overflow-x-hidden selection:bg-blue-500 selection:text-white">
+      {/* ── Code Terminal Preloader (Client Component inside Server Page) ── */}
+      <TerminalPreloader />
+
       {/* ── Navigation Bar ──────────────────────────────── */}
       <Navbar />
 

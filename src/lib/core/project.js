@@ -32,7 +32,7 @@ export const normalizeProject = (p) => {
 export async function getProjects() {
   try {
     const res = await fetch(
-      "https://portfolio-studio-roan-iota.vercel.app/api/add-project",
+      `${process.env.NEXT_PUBLIC_URL}/api/add-project`,
       { cache: "no-store" }
     );
 
