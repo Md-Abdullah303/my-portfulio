@@ -6,6 +6,7 @@ import Resume from "@/components/Resume";
 import RecentProjects from "@/components/RecentProjects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { getProjects } from "@/lib/core/project";
 
 export const metadata = {
   title: "Mohammad Abdullah — Full Stack Web Developer | Next.js & React",
@@ -13,7 +14,9 @@ export const metadata = {
     "Portfolio of Mohammad Abdullah, a Full Stack Web Developer from Dhaka, Bangladesh. Specializing in Next.js, React, Node.js, and MongoDB. Building fast, beautiful, and scalable web applications.",
 };
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
+
   return (
     <div className="relative min-h-screen text-slate-900 bg-[#f8fafc] overflow-x-hidden selection:bg-blue-500 selection:text-white">
       {/* ── Navigation Bar ──────────────────────────────── */}
@@ -26,7 +29,7 @@ export default function Home() {
       <AboutMe />
       <Skills />
       <Resume />
-      <RecentProjects />
+      <RecentProjects projects={projects} />
       <Contact />
       <Footer />
 
