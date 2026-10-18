@@ -40,7 +40,7 @@ export async function getProjects() {
       const data = await res.json();
       if (data?.projects && Array.isArray(data.projects) && data.projects.length > 0) {
         // Reverse to show the most recent projects first (newest to oldest)
-        return [...data.projects].reverse().map(normalizeProject);
+        return [...data.projects].map(normalizeProject);
       }
     }
   } catch (err) {
